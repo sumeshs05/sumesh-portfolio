@@ -19,7 +19,7 @@ export default function Footer({
           path="contact.heading"
           isAdmin={isAdmin}
           as="h2"
-          className="max-w-[16ch] text-[2rem] font-semibold leading-tight text-text-primary sm:text-[2.6rem]"
+          className="max-w-[40ch] text-[1.7rem] font-semibold leading-tight text-text-primary sm:text-[2.15rem]"
         />
         <EditableText
           value={contact.body}

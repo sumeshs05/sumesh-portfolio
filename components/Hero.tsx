@@ -7,10 +7,12 @@ import { SiteContent } from "@/lib/types";
 export default function Hero({
   hero,
   stats,
+  resumeUrl,
   isAdmin,
 }: {
   hero: SiteContent["hero"];
   stats: SiteContent["stats"];
+  resumeUrl: string;
   isAdmin: boolean;
 }) {
   return (
@@ -48,14 +50,24 @@ export default function Hero({
               href="/#work"
               className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
             >
-              {hero.ctaPrimaryLabel}
+              <EditableText
+                value={hero.ctaPrimaryLabel}
+                path="hero.ctaPrimaryLabel"
+                isAdmin={isAdmin}
+                as="span"
+              />
             </a>
             <a
-              href="/resume.pdf"
+              href={resumeUrl}
               download
               className="rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container"
             >
-              {hero.ctaSecondaryLabel}
+              <EditableText
+                value={hero.ctaSecondaryLabel}
+                path="hero.ctaSecondaryLabel"
+                isAdmin={isAdmin}
+                as="span"
+              />
             </a>
           </div>
 

@@ -13,7 +13,7 @@ export default function SkillsChips({
   isAdmin: boolean;
 }) {
   return (
-    <section className="mx-auto max-w-[1160px] px-5 py-16 md:px-8">
+    <section className="mx-auto max-w-[1160px] px-5 py-20 md:py-28 md:px-8">
       <EditableText
         value={intro.kicker}
         path="skillsIntro.kicker"

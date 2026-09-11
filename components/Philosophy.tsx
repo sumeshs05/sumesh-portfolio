@@ -12,7 +12,7 @@ export default function Philosophy({
   isAdmin: boolean;
 }) {
   return (
-    <section id="about" className="border-y border-border-subtle bg-surface py-16">
+    <section id="about" className="border-y border-border-subtle bg-surface py-20 md:py-28">
       <div className="mx-auto max-w-[1160px] px-5 md:px-8">
         <EditableText
           value={intro.kicker}

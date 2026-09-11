@@ -12,7 +12,7 @@ export default function Footer({
   isAdmin: boolean;
 }) {
   return (
-    <footer className="mt-8 rounded-t-[40px] bg-surface-container-high px-5 py-16 md:px-8">
+    <footer className="mt-8 rounded-t-[40px] bg-surface-container-high px-5 pt-24 pb-16 md:px-8 md:pt-28">
       <div className="mx-auto max-w-[1160px]">
         <EditableText
           value={contact.heading}

@@ -103,29 +103,43 @@ export default function Hero({
           )}
         </div>
 
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[28px] border border-border-card bg-surface-card">
-          {hero.photoUrl ? (
-            <Image
-              src={hero.photoUrl}
-              alt="Sumesh S"
-              fill
-              sizes="340px"
-              className="object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-container-high to-surface">
-              <span
-                className="flex h-28 w-28 items-center justify-center rounded-full text-4xl font-semibold text-on-primary"
-                style={{
-                  background:
-                    "radial-gradient(circle at 30% 30%, var(--primary), var(--primary-container))",
-                }}
-              >
-                S
-              </span>
-            </div>
-          )}
-          {isAdmin && <PhotoUploader hasPhoto={!!hero.photoUrl} />}
+        <div className="relative mx-auto w-full max-w-[340px]">
+          {/* Layered backing panels for a stacked, dimensional feel */}
+          <div
+            className="absolute inset-0 -z-10 rounded-[28px] border border-border-card bg-surface-container-high"
+            style={{ transform: "rotate(-4deg) translate(10px, 14px)" }}
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 -z-10 rounded-[28px] border border-primary/25"
+            style={{ transform: "rotate(3deg) translate(-9px, 9px)" }}
+            aria-hidden
+          />
+
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border-card bg-surface-card shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_36px_90px_-24px_rgba(0,0,0,0.6)]">
+            {hero.photoUrl ? (
+              <Image
+                src={hero.photoUrl}
+                alt="Sumesh S"
+                fill
+                sizes="340px"
+                className="object-cover"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-container-high to-surface">
+                <span
+                  className="flex h-28 w-28 items-center justify-center rounded-full text-4xl font-semibold text-on-primary"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 30%, var(--primary), var(--primary-container))",
+                  }}
+                >
+                  S
+                </span>
+              </div>
+            )}
+            {isAdmin && <PhotoUploader hasPhoto={!!hero.photoUrl} />}
+          </div>
         </div>
       </div>
     </header>

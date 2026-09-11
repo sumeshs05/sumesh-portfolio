@@ -17,6 +17,7 @@ export const seedContent: SiteContent = {
   ],
   milestonesIntro: {
     kicker: "Key career milestones",
+    heading: "Business impact first.",
   },
   milestones: [
     {

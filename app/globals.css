@@ -87,3 +87,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+
+.spin-slow {
+  animation: spin-slow 5s linear infinite;
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}

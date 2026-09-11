@@ -29,7 +29,7 @@ export default async function CaseStudyPage({
   return (
     <div id="top">
       {admin && <AdminBar />}
-      <Nav resumeUrl={content.resumeUrl} />
+      <Nav brand={content.nav} resumeUrl={content.resumeUrl} isAdmin={admin} />
 
       <header className="mx-auto max-w-[760px] px-5 pb-10 pt-14 md:px-8">
         <Link href="/#work" className="mb-7 inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary">
@@ -117,7 +117,7 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <Footer contact={content.contact} resumeUrl={content.resumeUrl} isAdmin={admin} />
+      <Footer contact={content.contact} roleLabel={content.nav.subtitle} resumeUrl={content.resumeUrl} isAdmin={admin} />
     </div>
   );
 }

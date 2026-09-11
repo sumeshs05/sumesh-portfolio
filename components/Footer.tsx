@@ -30,13 +30,13 @@ export default function Footer({
         />
 
         <div className="mt-8 flex flex-wrap gap-3">
-          
+          <a
             href={`mailto:${contact.email}`}
             className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
           >
             {contact.email}
           </a>
-          
+          <a
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +44,7 @@ export default function Footer({
           >
             LinkedIn ↗
           </a>
-          
+          <a
             href={resumeUrl}
             download
             className="rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container-highest"

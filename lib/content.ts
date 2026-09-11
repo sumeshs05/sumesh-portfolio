@@ -34,14 +34,28 @@ async function writeLocal(content: SiteContent): Promise<void> {
  * Uses Upstash Redis when configured (production), otherwise falls back
  * to a local JSON file under .data/ for local development.
  */
+function withDefaults(content: SiteContent): SiteContent {
+  // Backfills any newly-added fields for content saved before this update,
+  // without touching anything the user has already customized.
+  return {
+    ...content,
+    milestonesIntro: content.milestonesIntro ?? seedContent.milestonesIntro,
+    philosophyIntro: content.philosophyIntro ?? seedContent.philosophyIntro,
+    experienceIntro: content.experienceIntro ?? seedContent.experienceIntro,
+    certificationsIntro: content.certificationsIntro ?? seedContent.certificationsIntro,
+    caseStudiesIntro: content.caseStudiesIntro ?? seedContent.caseStudiesIntro,
+    skillsIntro: content.skillsIntro ?? seedContent.skillsIntro,
+  };
+}
+
 export async function getContent(): Promise<SiteContent> {
   if (redis) {
     const existing = await redis.get<SiteContent>(CONTENT_KEY);
-    if (existing) return existing;
+    if (existing) return withDefaults(existing);
     await redis.set(CONTENT_KEY, seedContent);
     return seedContent;
   }
-  return readLocal();
+  return withDefaults(await readLocal());
 }
 
 /** Overwrites the full site content document. */

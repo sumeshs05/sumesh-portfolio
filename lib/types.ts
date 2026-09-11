@@ -46,6 +46,12 @@ export type CaseStudy = {
   sections: CaseStudySection[];
 };
 
+export type SectionIntro = {
+  kicker: string;
+  heading?: string;
+  description?: string;
+};
+
 export type SiteContent = {
   hero: {
     eyebrow: string;
@@ -56,14 +62,20 @@ export type SiteContent = {
     photoUrl: string | null;
   };
   stats: Stat[];
+  milestonesIntro: SectionIntro;
   milestones: Milestone[];
+  philosophyIntro: SectionIntro;
   philosophy: {
     quote: string;
     principles: Principle[];
   };
+  experienceIntro: SectionIntro;
   experience: ExperienceItem[];
+  certificationsIntro: SectionIntro;
   certifications: Certification[];
+  caseStudiesIntro: SectionIntro;
   caseStudies: CaseStudy[];
+  skillsIntro: SectionIntro;
   skills: string[];
   contact: {
     heading: string;

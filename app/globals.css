@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --surface: #0c0c0f;
+  --surface-card: #121216;
+  --surface-container: #16161c;
+  --surface-container-high: #1c1c24;
+  --surface-container-highest: #23232d;
+  --border-subtle: #202027;
+  --border-card: #27272a;
+  --primary: #a78bfa;
+  --primary-container: #7c3aed;
+  --on-primary: #0a0012;
+  --text-primary: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-tertiary: #71717a;
+  --tertiary: #34d399;
+  --danger: #ef4444;
+  --outline: #334155;
+  --outline-variant: #27272a;
+
+  --font-geist-sans: 'Geist', system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-card: var(--border-card);
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-tertiary: var(--tertiary);
+  --color-danger: var(--danger);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --font-sans: 'Geist', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans);
+}
+
+::-webkit-scrollbar { display: none; }
+
+/* Editable region affordances (admin mode only) */
+.editable {
+  outline: 1px dashed transparent;
+  outline-offset: 4px;
+  border-radius: 4px;
+  transition: outline-color 0.15s ease, background-color 0.15s ease;
+  cursor: text;
+}
+.editable:hover {
+  outline-color: var(--primary);
+  background: rgba(167, 139, 250, 0.06);
+}
+.editable:focus {
+  outline: 1px solid var(--primary);
+  outline-offset: 4px;
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.admin-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}

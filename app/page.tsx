@@ -20,7 +20,7 @@ export default async function HomePage() {
     <div id="top">
       {admin && <AdminBar />}
       <Nav resumeUrl={content.resumeUrl} />
-      <Hero hero={content.hero} stats={content.stats} isAdmin={admin} />
+      <Hero hero={content.hero} stats={content.stats} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Milestones intro={content.milestonesIntro} milestones={content.milestones} isAdmin={admin} />
       <Philosophy intro={content.philosophyIntro} philosophy={content.philosophy} isAdmin={admin} />
       <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />

@@ -20,7 +20,7 @@ export default function CaseStudiesGrid({
   isAdmin: boolean;
 }) {
   return (
-    <section id="work" className="mx-auto max-w-[1160px] px-5 py-20 md:py-28 md:px-8">
+    <section id="work" className="mx-auto max-w-[1160px] px-5 pt-20 pb-10 md:px-8 md:pt-28 md:pb-14">
       <EditableText
         value={intro.kicker}
         path="caseStudiesIntro.kicker"

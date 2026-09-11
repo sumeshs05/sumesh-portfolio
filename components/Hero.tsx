@@ -104,6 +104,21 @@ export default function Hero({
         </div>
 
         <div className="relative mx-auto w-full max-w-[340px]">
+          {/* Ambient glow */}
+          <div
+            className="pointer-events-none absolute -inset-8 -z-20 rounded-full blur-[28px]"
+            style={{ background: "radial-gradient(circle, rgba(167,139,250,0.35), transparent 70%)" }}
+            aria-hidden
+          />
+          {/* Rotating light ring */}
+          <div
+            className="spin-slow pointer-events-none absolute -inset-1 -z-10 rounded-[32px] opacity-90 blur-[8px]"
+            style={{
+              background:
+                "conic-gradient(from 0deg, var(--primary), transparent 25%, transparent 55%, var(--primary) 75%, transparent 100%)",
+            }}
+            aria-hidden
+          />
           {/* Layered backing panels for a stacked, dimensional feel */}
           <div
             className="absolute inset-0 -z-10 rounded-[28px] border border-border-card bg-surface-container-high"

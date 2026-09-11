@@ -1,6 +1,7 @@
 import Image from "next/image";
 import EditableText from "@/components/EditableText";
 import PhotoUploader from "@/components/PhotoUploader";
+import { AddButton, RemoveButton } from "@/components/ListControls";
 import { SiteContent } from "@/lib/types";
 
 export default function Hero({
@@ -59,13 +60,35 @@ export default function Hero({
           </div>
 
           <dl className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-border-subtle pt-8">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt className="text-2xl font-semibold text-text-primary">{s.value}</dt>
-                <dd className="text-[13px] text-text-muted">{s.label}</dd>
+            {stats.map((s, i) => (
+              <div key={i} className="relative">
+                {isAdmin && <RemoveButton path="stats" index={i} />}
+                <EditableText
+                  value={s.value}
+                  path={`stats.${i}.value`}
+                  isAdmin={isAdmin}
+                  as="div"
+                  className="text-2xl font-semibold text-text-primary"
+                />
+                <EditableText
+                  value={s.label}
+                  path={`stats.${i}.label`}
+                  isAdmin={isAdmin}
+                  as="div"
+                  className="text-[13px] text-text-muted"
+                />
               </div>
             ))}
           </dl>
+          {isAdmin && (
+            <div className="mt-3">
+              <AddButton
+                path="stats"
+                label="Add stat"
+                item={{ value: "New", label: "Stat label" }}
+              />
+            </div>
+          )}
         </div>
 
         <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[28px] border border-border-card bg-surface-card">

@@ -44,6 +44,34 @@ export const seedContent: SiteContent = {
         "Swiggy Values Champion (League of Champions) and Most Valuable Player, OND 2025.",
     },
   ],
+  operatingAreasIntro: {
+    kicker: "Where I operate",
+    heading: "Where I operate.",
+    description:
+      "At the point where product decisions, operating complexity and commercial outcomes meet.",
+  },
+  operatingAreas: [
+    {
+      title: "Product scale",
+      description:
+        "Turning ambiguous problems into clear priorities, instrumented funnels and launches that can survive real operating conditions.",
+    },
+    {
+      title: "Monetization",
+      description:
+        "Connecting customer surfaces to measurable commercial models, while keeping user behavior and business trade-offs visible.",
+    },
+    {
+      title: "Cross-functional systems",
+      description:
+        "Creating a dependable rhythm across product, design, engineering, data, finance and operations.",
+    },
+    {
+      title: "Business judgment",
+      description:
+        "Knowing what to push, what to sequence, what to measure and when not to scale a weak signal.",
+    },
+  ],
   philosophyIntro: {
     kicker: "Philosophy & ethos",
   },

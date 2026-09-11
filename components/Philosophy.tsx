@@ -36,6 +36,9 @@ export default function Philosophy({
               className="relative rounded-2xl border border-border-card bg-surface-card p-5"
             >
               {isAdmin && <RemoveButton path="philosophy.principles" index={i} />}
+              <span className="mb-2 block font-mono text-[12px] font-semibold text-primary">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <EditableText
                 value={p.title}
                 path={`philosophy.principles.${i}.title`}

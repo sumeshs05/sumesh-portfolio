@@ -29,15 +29,22 @@ async function writeLocal(content: SiteContent): Promise<void> {
   await fs.writeFile(LOCAL_PATH, JSON.stringify(content, null, 2));
 }
 
-/** Backfills missing fields onto each item of a list (old items keep their
- * customized values; only genuinely-missing fields get the given default). */
+/** Backfills missing fields onto each item of a list. Matches each existing
+ * item to the seed item at the same position, so a missing field (like tags
+ * added after the item already existed) backfills with that item's own
+ * intended default — not a generic blank — while anything already
+ * customized on the item always wins. */
 function withItemDefaults<T extends object>(
   items: T[] | undefined,
   seedItems: T[],
-  defaults: Partial<T>
+  fallback: Partial<T>
 ): T[] {
   const base = items ?? seedItems;
-  return base.map((item) => ({ ...defaults, ...item }));
+  return base.map((item, i) => ({
+    ...fallback,
+    ...(seedItems[i] ?? {}),
+    ...item,
+  }));
 }
 
 /**

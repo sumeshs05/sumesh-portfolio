@@ -52,6 +52,8 @@ export type SectionIntro = {
   description?: string;
 };
 
+export type OperatingArea = { title: string; description: string };
+
 export type SiteContent = {
   hero: {
     eyebrow: string;
@@ -64,6 +66,8 @@ export type SiteContent = {
   stats: Stat[];
   milestonesIntro: SectionIntro;
   milestones: Milestone[];
+  operatingAreasIntro: SectionIntro;
+  operatingAreas: OperatingArea[];
   philosophyIntro: SectionIntro;
   philosophy: {
     quote: string;

@@ -40,6 +40,8 @@ function withDefaults(content: SiteContent): SiteContent {
   return {
     ...content,
     milestonesIntro: content.milestonesIntro ?? seedContent.milestonesIntro,
+    operatingAreasIntro: content.operatingAreasIntro ?? seedContent.operatingAreasIntro,
+    operatingAreas: content.operatingAreas ?? seedContent.operatingAreas,
     philosophyIntro: content.philosophyIntro ?? seedContent.philosophyIntro,
     experienceIntro: content.experienceIntro ?? seedContent.experienceIntro,
     certificationsIntro: content.certificationsIntro ?? seedContent.certificationsIntro,

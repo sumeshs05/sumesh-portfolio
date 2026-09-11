@@ -1,14 +1,21 @@
 import { SiteContent } from "@/lib/types";
 
 export const seedContent: SiteContent = {
+  nav: {
+    name: "Sumesh S",
+    subtitle: "Product & Business Leader",
+  },
   hero: {
-    eyebrow: "Open to Senior PM roles & consulting",
+    eyebrow: "Open to advisory & select roles",
     headline: "Turning ambiguous problems into shipped roadmaps.",
     intro:
       "I'm Sumesh — a Senior Product / Program Manager with 12 years building consumer products at scale, including 7+ years and counting at Swiggy. I instrument the funnel, prioritize with data, and partner across Product, Design, Engineering, Data and Ops to ship things people actually use.",
     ctaPrimaryLabel: "See my work",
     ctaSecondaryLabel: "Download résumé",
     photoUrl: null,
+    captionLine: "Sumesh S · 12+ Yrs Craft · Bengaluru / Global",
+    captionBadge: "Open to opportunities",
+    tags: ["Scale & Monetization", "Cross-Functional Execution"],
   },
   stats: [
     { value: "12 yrs", label: "Product & delivery craft" },
@@ -16,8 +23,10 @@ export const seedContent: SiteContent = {
     { value: "5", label: "Business lines merchandised" },
   ],
   milestonesIntro: {
-    kicker: "Key career milestones",
+    kicker: "Track record",
     heading: "Business impact first.",
+    description:
+      "Concrete, measurable results from scaling on-app merchandising and monetization at Swiggy.",
   },
   milestones: [
     {
@@ -25,24 +34,28 @@ export const seedContent: SiteContent = {
       label: "Widget reach scaled",
       description:
         "Scaled a pan-India on-app widget from 10x to 100x reach, unlocking new monetized ad revenue.",
+      tags: ["Pan-India Reach", "Monetized Inventory"],
     },
     {
       value: "5 lines",
       label: "Merchandising owned",
       description:
         "Food, Instamart, Dineout, Genie and Scenes — end-to-end PI planning and roadmap execution across all five.",
+      tags: ["PI Planning", "Cross-Line Coordination"],
     },
     {
       value: "CPC / CPV",
       label: "Monetization built",
       description:
         "Built out CPC and CPV monetization mechanics with traffic distribution, merchandising and brand marketing.",
+      tags: ["Ad Mechanics", "Commercial Models"],
     },
     {
       value: "2x",
       label: "Recognized company-wide",
       description:
         "Swiggy Values Champion (League of Champions) and Most Valuable Player, OND 2025.",
+      tags: ["League of Champions", "Values Champion"],
     },
   ],
   operatingAreasIntro: {
@@ -56,21 +69,25 @@ export const seedContent: SiteContent = {
       title: "Product scale",
       description:
         "Turning ambiguous problems into clear priorities, instrumented funnels and launches that can survive real operating conditions.",
+      tags: ["Funnel Instrumentation", "Clear Priorities"],
     },
     {
       title: "Monetization",
       description:
         "Connecting customer surfaces to measurable commercial models, while keeping user behavior and business trade-offs visible.",
+      tags: ["Commercial Models", "User Behavior"],
     },
     {
       title: "Cross-functional systems",
       description:
         "Creating a dependable rhythm across product, design, engineering, data, finance and operations.",
+      tags: ["Dependable Rhythm", "Stakeholder Alignment"],
     },
     {
       title: "Business judgment",
       description:
         "Knowing what to push, what to sequence, what to measure and when not to scale a weak signal.",
+      tags: ["Rigorous Sequencing", "Signal Evaluation"],
     },
   ],
   philosophyIntro: {
@@ -123,6 +140,7 @@ export const seedContent: SiteContent = {
         "Scaled a pan-India widget from 10x to 100x reach, unlocking new monetized ad revenue.",
         "Built out CPC and CPV monetization mechanics in partnership with traffic distribution and brand marketing.",
       ],
+      tags: ["PI Planning", "Food & Instamart", "Dineout, Genie & Scenes", "CPC & CPV Mechanics"],
     },
     {
       id: "exp-amazon-compliance",
@@ -132,6 +150,7 @@ export const seedContent: SiteContent = {
       period: "Feb 2017 – Jun 2019",
       current: false,
       bullets: [],
+      tags: [],
     },
     {
       id: "exp-jsw",
@@ -141,6 +160,7 @@ export const seedContent: SiteContent = {
       period: "Aug 2016 – Jan 2017",
       current: false,
       bullets: [],
+      tags: [],
     },
     {
       id: "exp-alansari",
@@ -150,6 +170,7 @@ export const seedContent: SiteContent = {
       period: "Sep 2015 – Jul 2016",
       current: false,
       bullets: [],
+      tags: [],
     },
     {
       id: "exp-amazon-qa",
@@ -159,6 +180,7 @@ export const seedContent: SiteContent = {
       period: "Apr 2014 – Jul 2015",
       current: false,
       bullets: [],
+      tags: [],
     },
     {
       id: "exp-ambiquant",
@@ -168,6 +190,7 @@ export const seedContent: SiteContent = {
       period: "Aug 2013 – Jan 2014",
       current: false,
       bullets: [],
+      tags: [],
     },
     {
       id: "exp-ibm",
@@ -177,11 +200,14 @@ export const seedContent: SiteContent = {
       period: "Feb 2013 – Aug 2013",
       current: false,
       bullets: [],
+      tags: [],
     },
   ],
   certificationsIntro: {
     kicker: "Credentials & recognition",
     heading: "Certifications & recognitions",
+    description:
+      "Formal credentials and organizational recognition across execution, values, and emerging technology.",
   },
   certifications: [
     {
@@ -189,36 +215,42 @@ export const seedContent: SiteContent = {
       title: "What is Generative AI",
       org: "Certification",
       meta: "Completed",
+      tagline: "Foundational LLM concepts",
     },
     {
       id: "cert-airtribe",
       title: "AI First — Product Management",
       org: "Airtribe",
       meta: "Expected 28 Nov 2026",
+      tagline: "Applied AI for product teams",
     },
     {
       id: "cert-basecamp",
       title: "Project Management Best Practices",
       org: "Basecamp",
       meta: "Completed",
+      tagline: "Execution standards",
     },
     {
       id: "cert-meetings",
       title: "Certificate of Commitment — Meeting Effectiveness",
       org: "Internal",
       meta: "Completed",
+      tagline: "Operational rigor",
     },
     {
       id: "cert-values",
       title: "League of Champions — Swiggy Values Champion",
       org: "Swiggy",
       meta: "Recognition",
+      tagline: "Company-wide recognition",
     },
     {
       id: "cert-mvp",
       title: "Most Valuable Player, OND 2025",
       org: "Swiggy",
       meta: "Recognition",
+      tagline: "High-impact execution award",
     },
   ],
   skillsIntro: {
@@ -243,6 +275,8 @@ export const seedContent: SiteContent = {
     kicker: "Independent studies & exploratory notes",
     heading:
       "Self-directed research I return to on weekends, out of curiosity — not work tasks.",
+    description:
+      "Four independent studies in growth strategy, user research, product strategy, and UX research.",
   },
   caseStudies: [
     {
@@ -588,6 +622,7 @@ export const seedContent: SiteContent = {
     body: "Open to Senior Product / Program Manager roles and consulting engagements. Based in Bangalore, working comfortably across time zones.",
     email: "sumesh.nair.05@gmail.com",
     linkedin: "https://www.linkedin.com/in/sumesh-s-a210b464",
+    location: "Bangalore, India (IST)",
   },
   resumeUrl: "/resume.pdf",
 };

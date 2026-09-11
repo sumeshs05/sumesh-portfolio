@@ -1,4 +1,5 @@
 import EditableText from "@/components/EditableText";
+import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
 import { ExperienceItem, SectionIntro } from "@/lib/types";
 
@@ -115,6 +116,14 @@ export default function ExperienceTrail({
                         ))}
                       </ul>
                     )}
+                    <div className="mt-4 flex flex-wrap gap-1.5 border-t border-border-subtle pt-4">
+                      {item.tags.map((t, ti) => (
+                        <TagChip key={ti} tag={t} path={`experience.${i}.tags`} index={ti} isAdmin={isAdmin} />
+                      ))}
+                      {isAdmin && (
+                        <AddButton path={`experience.${i}.tags`} label="Tag" item="New tag" />
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <div className="relative pt-1">
@@ -163,6 +172,7 @@ export default function ExperienceTrail({
               period: "2024 – Present",
               current: false,
               bullets: [],
+              tags: [],
             }}
           />
         </div>

@@ -1,6 +1,10 @@
+import { TrendingUp, IndianRupee, Sparkles, Target } from "lucide-react";
 import EditableText from "@/components/EditableText";
+import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
 import { OperatingArea, SectionIntro } from "@/lib/types";
+
+const ICONS = [TrendingUp, IndianRupee, Sparkles, Target];
 
 export default function OperatingAreas({
   intro,
@@ -39,35 +43,49 @@ export default function OperatingAreas({
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {areas.map((a, i) => (
-            <div
-              key={i}
-              className="relative rounded-2xl border border-border-card bg-surface-card p-6"
-            >
-              {isAdmin && <RemoveButton path="operatingAreas" index={i} />}
-              <EditableText
-                value={a.title}
-                path={`operatingAreas.${i}.title`}
-                isAdmin={isAdmin}
-                as="div"
-                className="text-[15px] font-semibold text-text-primary"
-              />
-              <EditableText
-                value={a.description}
-                path={`operatingAreas.${i}.description`}
-                isAdmin={isAdmin}
-                as="p"
-                className="mt-2 text-[13.5px] leading-relaxed text-text-muted"
-              />
-            </div>
-          ))}
+          {areas.map((a, i) => {
+            const Icon = ICONS[i % ICONS.length];
+            return (
+              <div
+                key={i}
+                className="relative rounded-2xl border border-border-card bg-surface-card p-6"
+              >
+                {isAdmin && <RemoveButton path="operatingAreas" index={i} />}
+                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/12">
+                  <Icon size={17} className="text-primary" />
+                </div>
+                <EditableText
+                  value={a.title}
+                  path={`operatingAreas.${i}.title`}
+                  isAdmin={isAdmin}
+                  as="div"
+                  className="text-[15px] font-semibold text-text-primary"
+                />
+                <EditableText
+                  value={a.description}
+                  path={`operatingAreas.${i}.description`}
+                  isAdmin={isAdmin}
+                  as="p"
+                  className="mt-2 text-[13.5px] leading-relaxed text-text-muted"
+                />
+                <div className="mt-3 flex flex-wrap gap-1.5 border-t border-border-subtle pt-3">
+                  {a.tags.map((t, ti) => (
+                    <TagChip key={ti} tag={t} path={`operatingAreas.${i}.tags`} index={ti} isAdmin={isAdmin} />
+                  ))}
+                  {isAdmin && (
+                    <AddButton path={`operatingAreas.${i}.tags`} label="Tag" item="New tag" />
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
         {isAdmin && (
           <div className="mt-4">
             <AddButton
               path="operatingAreas"
               label="Add focus area"
-              item={{ title: "New focus area", description: "What this means in practice." }}
+              item={{ title: "New focus area", description: "What this means in practice.", tags: [] }}
             />
           </div>
         )}

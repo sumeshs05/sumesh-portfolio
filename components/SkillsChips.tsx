@@ -28,16 +28,18 @@ export default function SkillsChips({
         as="h2"
         className="mb-7 text-2xl font-semibold text-text-primary sm:text-3xl"
       />
-      <div className="flex flex-wrap gap-2.5">
-        {skills.map((s, i) => (
-          <SkillChip key={i} skill={s} index={i} isAdmin={isAdmin} />
-        ))}
-      </div>
-      {isAdmin && (
-        <div className="mt-4">
-          <AddButton path="skills" label="Add skill" item="New skill" />
+      <div className="rounded-2xl border border-border-card bg-surface-card p-6 md:p-8">
+        <div className="flex flex-wrap gap-2.5">
+          {skills.map((s, i) => (
+            <SkillChip key={i} skill={s} index={i} isAdmin={isAdmin} />
+          ))}
         </div>
-      )}
+        {isAdmin && (
+          <div className="mt-4">
+            <AddButton path="skills" label="Add skill" item="New skill" />
+          </div>
+        )}
+      </div>
     </section>
   );
 }

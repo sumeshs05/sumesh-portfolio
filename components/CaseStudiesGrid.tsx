@@ -35,6 +35,13 @@ export default function CaseStudiesGrid({
         as="h2"
         className="max-w-[36ch] text-2xl font-semibold text-text-primary sm:text-3xl"
       />
+      <EditableText
+        value={intro.description ?? ""}
+        path="caseStudiesIntro.description"
+        isAdmin={isAdmin}
+        as="p"
+        className="mt-2 max-w-[60ch] text-sm text-text-muted"
+      />
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         {caseStudies.map((cs, i) => {

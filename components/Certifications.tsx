@@ -21,13 +21,22 @@ export default function Certifications({
           as="p"
           className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
         />
-        <EditableText
-          value={intro.heading ?? ""}
-          path="certificationsIntro.heading"
-          isAdmin={isAdmin}
-          as="h2"
-          className="text-2xl font-semibold text-text-primary sm:text-3xl"
-        />
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <EditableText
+            value={intro.heading ?? ""}
+            path="certificationsIntro.heading"
+            isAdmin={isAdmin}
+            as="h2"
+            className="text-2xl font-semibold text-text-primary sm:text-3xl"
+          />
+          <EditableText
+            value={intro.description ?? ""}
+            path="certificationsIntro.description"
+            isAdmin={isAdmin}
+            as="p"
+            className="max-w-[38ch] text-sm text-text-muted"
+          />
+        </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((c, i) => (
@@ -57,6 +66,13 @@ export default function Certifications({
                 as="div"
                 className="mt-1 text-[13px] text-text-muted"
               />
+              <EditableText
+                value={c.tagline}
+                path={`certifications.${i}.tagline`}
+                isAdmin={isAdmin}
+                as="div"
+                className="mt-2 border-t border-border-subtle pt-2 text-[12px] text-text-tertiary"
+              />
             </div>
           ))}
         </div>
@@ -70,6 +86,7 @@ export default function Certifications({
                 title: "New credential",
                 org: "Organization",
                 meta: "Completed",
+                tagline: "",
               }}
             />
           </div>

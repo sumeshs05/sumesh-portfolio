@@ -11,14 +11,17 @@ export default function Nav({ resumeUrl }: { resumeUrl: string }) {
           Sumesh S
         </Link>
         <nav className="hidden items-center gap-1 text-sm text-text-muted md:flex">
-          <Link href="/#work" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            Work
-          </Link>
-          <Link href="/#about" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            About
+          <Link href="/#impact" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
+            Impact
           </Link>
           <Link href="/#experience" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
             Experience
+          </Link>
+          <Link href="/#work" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
+            Thinking
+          </Link>
+          <Link href="/#contact" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
+            Contact
           </Link>
           <a
             href={resumeUrl}

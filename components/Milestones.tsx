@@ -12,7 +12,7 @@ export default function Milestones({
   isAdmin: boolean;
 }) {
   return (
-    <section className="mx-auto max-w-[1160px] px-5 py-16 md:px-8">
+    <section id="impact" className="mx-auto max-w-[1160px] px-5 py-16 md:px-8">
       <EditableText
         value={intro.kicker}
         path="milestonesIntro.kicker"

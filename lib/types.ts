@@ -1,6 +1,6 @@
 export type Stat = { value: string; label: string };
 
-export type Milestone = { value: string; label: string; description: string };
+export type Milestone = { value: string; label: string; description: string; tags: string[] };
 
 export type Principle = { title: string; description: string };
 
@@ -12,6 +12,7 @@ export type ExperienceItem = {
   period: string;
   current: boolean;
   bullets: string[];
+  tags: string[]; // shown only on the current-role card
 };
 
 export type Certification = {
@@ -19,6 +20,7 @@ export type Certification = {
   title: string;
   org: string;
   meta: string; // date or status
+  tagline: string;
 };
 
 export type CaseStudyStat = { value: string; label: string };
@@ -52,9 +54,12 @@ export type SectionIntro = {
   description?: string;
 };
 
-export type OperatingArea = { title: string; description: string };
+export type OperatingArea = { title: string; description: string; tags: string[] };
+
+export type NavBrand = { name: string; subtitle: string };
 
 export type SiteContent = {
+  nav: NavBrand;
   hero: {
     eyebrow: string;
     headline: string;
@@ -62,6 +67,9 @@ export type SiteContent = {
     ctaPrimaryLabel: string;
     ctaSecondaryLabel: string;
     photoUrl: string | null;
+    captionLine: string;
+    captionBadge: string;
+    tags: string[];
   };
   stats: Stat[];
   milestonesIntro: SectionIntro;
@@ -86,6 +94,7 @@ export type SiteContent = {
     body: string;
     email: string;
     linkedin: string;
+    location: string;
   };
   resumeUrl: string;
 };

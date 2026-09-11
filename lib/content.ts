@@ -29,23 +29,48 @@ async function writeLocal(content: SiteContent): Promise<void> {
   await fs.writeFile(LOCAL_PATH, JSON.stringify(content, null, 2));
 }
 
+/** Backfills missing fields onto each item of a list (old items keep their
+ * customized values; only genuinely-missing fields get the given default). */
+function withItemDefaults<T extends object>(
+  items: T[] | undefined,
+  seedItems: T[],
+  defaults: Partial<T>
+): T[] {
+  const base = items ?? seedItems;
+  return base.map((item) => ({ ...defaults, ...item }));
+}
+
 /**
  * Reads the full site content document.
  * Uses Upstash Redis when configured (production), otherwise falls back
  * to a local JSON file under .data/ for local development.
  */
 function withDefaults(content: SiteContent): SiteContent {
-  // Backfills any newly-added fields (and newly-added fields *within* an
-  // existing section, like a heading added to a section that only had a
-  // kicker before) without ever overwriting anything already customized.
+  // Backfills any newly-added fields (including newly-added fields *within*
+  // an object or list item that already existed) without ever overwriting
+  // anything already customized.
   return {
     ...content,
+    nav: { ...seedContent.nav, ...content.nav },
+    hero: { ...seedContent.hero, ...content.hero },
+    contact: { ...seedContent.contact, ...content.contact },
     milestonesIntro: { ...seedContent.milestonesIntro, ...content.milestonesIntro },
+    milestones: withItemDefaults(content.milestones, seedContent.milestones, {
+      tags: [] as string[],
+    }),
     operatingAreasIntro: { ...seedContent.operatingAreasIntro, ...content.operatingAreasIntro },
-    operatingAreas: content.operatingAreas ?? seedContent.operatingAreas,
+    operatingAreas: withItemDefaults(content.operatingAreas, seedContent.operatingAreas, {
+      tags: [] as string[],
+    }),
     philosophyIntro: { ...seedContent.philosophyIntro, ...content.philosophyIntro },
     experienceIntro: { ...seedContent.experienceIntro, ...content.experienceIntro },
+    experience: withItemDefaults(content.experience, seedContent.experience, {
+      tags: [] as string[],
+    }),
     certificationsIntro: { ...seedContent.certificationsIntro, ...content.certificationsIntro },
+    certifications: withItemDefaults(content.certifications, seedContent.certifications, {
+      tagline: "",
+    }),
     caseStudiesIntro: { ...seedContent.caseStudiesIntro, ...content.caseStudiesIntro },
     skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
   };

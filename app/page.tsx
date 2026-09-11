@@ -21,12 +21,12 @@ export default async function HomePage() {
       {admin && <AdminBar />}
       <Nav resumeUrl={content.resumeUrl} />
       <Hero hero={content.hero} stats={content.stats} isAdmin={admin} />
-      <Milestones milestones={content.milestones} isAdmin={admin} />
-      <Philosophy philosophy={content.philosophy} isAdmin={admin} />
-      <ExperienceTrail experience={content.experience} isAdmin={admin} />
-      <Certifications certifications={content.certifications} isAdmin={admin} />
-      <CaseStudiesGrid caseStudies={content.caseStudies} isAdmin={admin} />
-      <SkillsChips skills={content.skills} isAdmin={admin} />
+      <Milestones intro={content.milestonesIntro} milestones={content.milestones} isAdmin={admin} />
+      <Philosophy intro={content.philosophyIntro} philosophy={content.philosophy} isAdmin={admin} />
+      <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />
+      <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />
+      <CaseStudiesGrid intro={content.caseStudiesIntro} caseStudies={content.caseStudies} isAdmin={admin} />
+      <SkillsChips intro={content.skillsIntro} skills={content.skills} isAdmin={admin} />
       <Footer contact={content.contact} resumeUrl={content.resumeUrl} isAdmin={admin} />
     </div>
   );

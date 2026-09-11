@@ -12,13 +12,20 @@ export default function Milestones({
   isAdmin: boolean;
 }) {
   return (
-    <section id="impact" className="mx-auto max-w-[1160px] px-5 py-20 md:py-28 md:px-8">
+    <section id="impact" className="mx-auto max-w-[1160px] px-5 pt-12 pb-20 md:px-8 md:pt-16 md:pb-28">
       <EditableText
         value={intro.kicker}
         path="milestonesIntro.kicker"
         isAdmin={isAdmin}
         as="p"
-        className="mb-8 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+        className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+      />
+      <EditableText
+        value={intro.heading ?? ""}
+        path="milestonesIntro.heading"
+        isAdmin={isAdmin}
+        as="h2"
+        className="mb-8 text-2xl font-semibold text-text-primary sm:text-3xl"
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {milestones.map((m, i) => (

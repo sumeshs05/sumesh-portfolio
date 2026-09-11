@@ -16,7 +16,7 @@ export default function Hero({
   isAdmin: boolean;
 }) {
   return (
-    <header className="mx-auto max-w-[1160px] px-5 pb-16 pt-16 md:px-8 md:pt-20">
+    <header className="mx-auto max-w-[1160px] px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
       <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
         <div>
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-border-card bg-surface-card px-3.5 py-1.5 text-[13px] font-medium text-text-muted">

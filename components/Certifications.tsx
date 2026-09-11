@@ -1,23 +1,33 @@
 import EditableText from "@/components/EditableText";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { Certification } from "@/lib/types";
+import { Certification, SectionIntro } from "@/lib/types";
 
 export default function Certifications({
+  intro,
   certifications,
   isAdmin,
 }: {
+  intro: SectionIntro;
   certifications: Certification[];
   isAdmin: boolean;
 }) {
   return (
     <section className="border-y border-border-subtle bg-surface py-16">
       <div className="mx-auto max-w-[1160px] px-5 md:px-8">
-        <p className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary">
-          Credentials &amp; recognition
-        </p>
-        <h2 className="text-2xl font-semibold text-text-primary sm:text-3xl">
-          Certifications &amp; recognitions
-        </h2>
+        <EditableText
+          value={intro.kicker}
+          path="certificationsIntro.kicker"
+          isAdmin={isAdmin}
+          as="p"
+          className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+        />
+        <EditableText
+          value={intro.heading ?? ""}
+          path="certificationsIntro.heading"
+          isAdmin={isAdmin}
+          as="h2"
+          className="text-2xl font-semibold text-text-primary sm:text-3xl"
+        />
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((c, i) => (

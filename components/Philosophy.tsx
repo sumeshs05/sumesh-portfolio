@@ -1,20 +1,26 @@
 import EditableText from "@/components/EditableText";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { SiteContent } from "@/lib/types";
+import { SiteContent, SectionIntro } from "@/lib/types";
 
 export default function Philosophy({
+  intro,
   philosophy,
   isAdmin,
 }: {
+  intro: SectionIntro;
   philosophy: SiteContent["philosophy"];
   isAdmin: boolean;
 }) {
   return (
     <section id="about" className="border-y border-border-subtle bg-surface py-16">
       <div className="mx-auto max-w-[1160px] px-5 md:px-8">
-        <p className="mb-6 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary">
-          Philosophy &amp; ethos
-        </p>
+        <EditableText
+          value={intro.kicker}
+          path="philosophyIntro.kicker"
+          isAdmin={isAdmin}
+          as="p"
+          className="mb-6 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+        />
         <EditableText
           value={philosophy.quote}
           path="philosophy.quote"

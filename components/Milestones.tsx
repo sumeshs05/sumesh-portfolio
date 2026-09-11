@@ -1,19 +1,25 @@
 import EditableText from "@/components/EditableText";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { Milestone } from "@/lib/types";
+import { Milestone, SectionIntro } from "@/lib/types";
 
 export default function Milestones({
+  intro,
   milestones,
   isAdmin,
 }: {
+  intro: SectionIntro;
   milestones: Milestone[];
   isAdmin: boolean;
 }) {
   return (
     <section className="mx-auto max-w-[1160px] px-5 py-16 md:px-8">
-      <p className="mb-8 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary">
-        Key career milestones
-      </p>
+      <EditableText
+        value={intro.kicker}
+        path="milestonesIntro.kicker"
+        isAdmin={isAdmin}
+        as="p"
+        className="mb-8 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+      />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {milestones.map((m, i) => (
           <div

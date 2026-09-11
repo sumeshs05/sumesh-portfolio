@@ -1,22 +1,39 @@
 import EditableText from "@/components/EditableText";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { ExperienceItem } from "@/lib/types";
+import { ExperienceItem, SectionIntro } from "@/lib/types";
 
 export default function ExperienceTrail({
+  intro,
   experience,
   isAdmin,
 }: {
+  intro: SectionIntro;
   experience: ExperienceItem[];
   isAdmin: boolean;
 }) {
   return (
     <section id="experience" className="mx-auto max-w-[760px] px-5 py-16 md:px-8">
-      <p className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary">
-        12 years, one thread
-      </p>
-      <h2 className="text-2xl font-semibold text-text-primary sm:text-3xl">
-        The journey so far
-      </h2>
+      <EditableText
+        value={intro.kicker}
+        path="experienceIntro.kicker"
+        isAdmin={isAdmin}
+        as="p"
+        className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+      />
+      <EditableText
+        value={intro.heading ?? ""}
+        path="experienceIntro.heading"
+        isAdmin={isAdmin}
+        as="h2"
+        className="text-2xl font-semibold text-text-primary sm:text-3xl"
+      />
+      <EditableText
+        value={intro.description ?? ""}
+        path="experienceIntro.description"
+        isAdmin={isAdmin}
+        as="p"
+        className="mt-2 text-text-muted"
+      />
 
       <div className="relative mt-10 pl-9">
         <div

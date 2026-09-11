@@ -1,7 +1,7 @@
 import Link from "next/link";
 import EditableText from "@/components/EditableText";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { CaseStudy } from "@/lib/types";
+import { CaseStudy, SectionIntro } from "@/lib/types";
 
 const COLOR_STYLES: Record<CaseStudy["color"], { bg: string; text: string; border: string }> = {
   violet: { bg: "rgba(167,139,250,0.12)", text: "#c4b5fd", border: "rgba(167,139,250,0.4)" },
@@ -11,20 +11,30 @@ const COLOR_STYLES: Record<CaseStudy["color"], { bg: string; text: string; borde
 };
 
 export default function CaseStudiesGrid({
+  intro,
   caseStudies,
   isAdmin,
 }: {
+  intro: SectionIntro;
   caseStudies: CaseStudy[];
   isAdmin: boolean;
 }) {
   return (
     <section id="work" className="mx-auto max-w-[1160px] px-5 py-16 md:px-8">
-      <p className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary">
-        Independent studies &amp; exploratory notes
-      </p>
-      <h2 className="max-w-[36ch] text-2xl font-semibold text-text-primary sm:text-3xl">
-        Self-directed research I return to on weekends, out of curiosity — not work tasks.
-      </h2>
+      <EditableText
+        value={intro.kicker}
+        path="caseStudiesIntro.kicker"
+        isAdmin={isAdmin}
+        as="p"
+        className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+      />
+      <EditableText
+        value={intro.heading ?? ""}
+        path="caseStudiesIntro.heading"
+        isAdmin={isAdmin}
+        as="h2"
+        className="max-w-[36ch] text-2xl font-semibold text-text-primary sm:text-3xl"
+      />
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         {caseStudies.map((cs, i) => {

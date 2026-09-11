@@ -20,7 +20,7 @@ export default async function HomePage() {
   return (
     <div id="top">
       {admin && <AdminBar />}
-      <Nav resumeUrl={content.resumeUrl} />
+      <Nav brand={content.nav} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Hero hero={content.hero} stats={content.stats} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Milestones intro={content.milestonesIntro} milestones={content.milestones} isAdmin={admin} />
       <OperatingAreas intro={content.operatingAreasIntro} areas={content.operatingAreas} isAdmin={admin} />
@@ -29,7 +29,7 @@ export default async function HomePage() {
       <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />
       <CaseStudiesGrid intro={content.caseStudiesIntro} caseStudies={content.caseStudies} isAdmin={admin} />
       <SkillsChips intro={content.skillsIntro} skills={content.skills} isAdmin={admin} />
-      <Footer contact={content.contact} resumeUrl={content.resumeUrl} isAdmin={admin} />
+      <Footer contact={content.contact} roleLabel={content.nav.subtitle} resumeUrl={content.resumeUrl} isAdmin={admin} />
     </div>
   );
 }

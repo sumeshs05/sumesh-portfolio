@@ -15,6 +15,9 @@ export const seedContent: SiteContent = {
     { value: "7+ yrs", label: "Continuous run at Swiggy" },
     { value: "5", label: "Business lines merchandised" },
   ],
+  milestonesIntro: {
+    kicker: "Key career milestones",
+  },
   milestones: [
     {
       value: "10x → 100x",
@@ -41,6 +44,9 @@ export const seedContent: SiteContent = {
         "Swiggy Values Champion (League of Champions) and Most Valuable Player, OND 2025.",
     },
   ],
+  philosophyIntro: {
+    kicker: "Philosophy & ethos",
+  },
   philosophy: {
     quote:
       "Good product work isn't about running ceremonies or managing a feature list. It's translating ambiguous, cross-functional problems into a roadmap you're proud to ship.",
@@ -66,6 +72,12 @@ export const seedContent: SiteContent = {
           "Funnel data and RICE scores make the call, not whoever's in the room.",
       },
     ],
+  },
+  experienceIntro: {
+    kicker: "12 years, one thread",
+    heading: "The journey so far",
+    description:
+      "From finance associate to senior product manager — every stop added a different lens on how businesses actually run.",
   },
   experience: [
     {
@@ -138,6 +150,10 @@ export const seedContent: SiteContent = {
       bullets: [],
     },
   ],
+  certificationsIntro: {
+    kicker: "Credentials & recognition",
+    heading: "Certifications & recognitions",
+  },
   certifications: [
     {
       id: "cert-genai",
@@ -176,6 +192,10 @@ export const seedContent: SiteContent = {
       meta: "Recognition",
     },
   ],
+  skillsIntro: {
+    kicker: "Toolkit",
+    heading: "What I bring to the table",
+  },
   skills: [
     "Agile & Scrum",
     "Product Roadmapping",
@@ -190,6 +210,11 @@ export const seedContent: SiteContent = {
     "React & React Native Fluency",
     "Effective Communication",
   ],
+  caseStudiesIntro: {
+    kicker: "Independent studies & exploratory notes",
+    heading:
+      "Self-directed research I return to on weekends, out of curiosity — not work tasks.",
+  },
   caseStudies: [
     {
       slug: "zepto-aov",

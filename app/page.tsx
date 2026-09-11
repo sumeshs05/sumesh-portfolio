@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import AdminBar from "@/components/AdminBar";
 import Hero from "@/components/Hero";
 import Milestones from "@/components/Milestones";
+import OperatingAreas from "@/components/OperatingAreas";
 import Philosophy from "@/components/Philosophy";
 import ExperienceTrail from "@/components/ExperienceTrail";
 import Certifications from "@/components/Certifications";
@@ -22,6 +23,7 @@ export default async function HomePage() {
       <Nav resumeUrl={content.resumeUrl} />
       <Hero hero={content.hero} stats={content.stats} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Milestones intro={content.milestonesIntro} milestones={content.milestones} isAdmin={admin} />
+      <OperatingAreas intro={content.operatingAreasIntro} areas={content.operatingAreas} isAdmin={admin} />
       <Philosophy intro={content.philosophyIntro} philosophy={content.philosophy} isAdmin={admin} />
       <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />
       <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />

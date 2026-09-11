@@ -35,18 +35,19 @@ async function writeLocal(content: SiteContent): Promise<void> {
  * to a local JSON file under .data/ for local development.
  */
 function withDefaults(content: SiteContent): SiteContent {
-  // Backfills any newly-added fields for content saved before this update,
-  // without touching anything the user has already customized.
+  // Backfills any newly-added fields (and newly-added fields *within* an
+  // existing section, like a heading added to a section that only had a
+  // kicker before) without ever overwriting anything already customized.
   return {
     ...content,
-    milestonesIntro: content.milestonesIntro ?? seedContent.milestonesIntro,
-    operatingAreasIntro: content.operatingAreasIntro ?? seedContent.operatingAreasIntro,
+    milestonesIntro: { ...seedContent.milestonesIntro, ...content.milestonesIntro },
+    operatingAreasIntro: { ...seedContent.operatingAreasIntro, ...content.operatingAreasIntro },
     operatingAreas: content.operatingAreas ?? seedContent.operatingAreas,
-    philosophyIntro: content.philosophyIntro ?? seedContent.philosophyIntro,
-    experienceIntro: content.experienceIntro ?? seedContent.experienceIntro,
-    certificationsIntro: content.certificationsIntro ?? seedContent.certificationsIntro,
-    caseStudiesIntro: content.caseStudiesIntro ?? seedContent.caseStudiesIntro,
-    skillsIntro: content.skillsIntro ?? seedContent.skillsIntro,
+    philosophyIntro: { ...seedContent.philosophyIntro, ...content.philosophyIntro },
+    experienceIntro: { ...seedContent.experienceIntro, ...content.experienceIntro },
+    certificationsIntro: { ...seedContent.certificationsIntro, ...content.certificationsIntro },
+    caseStudiesIntro: { ...seedContent.caseStudiesIntro, ...content.caseStudiesIntro },
+    skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
   };
 }
 

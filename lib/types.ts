@@ -100,6 +100,8 @@ export type SiteContent = {
   caseStudies: CaseStudy[];
   skillsIntro: SectionIntro;
   skills: string[];
+  aiSkills: string[];
+  aiTools: string[];
   contact: {
     heading: string;
     body: string;

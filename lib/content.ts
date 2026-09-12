@@ -88,6 +88,8 @@ function withDefaults(content: SiteContent): SiteContent {
       domain: "",
     }),
     skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
+    aiSkills: content.aiSkills ?? seedContent.aiSkills,
+    aiTools: content.aiTools ?? seedContent.aiTools,
   };
 }
 

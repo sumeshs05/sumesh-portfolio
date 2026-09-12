@@ -129,7 +129,8 @@ export const seedContent: SiteContent = {
     {
       id: "exp-swiggy",
       role: "Sr. Manager, Project Management — Product Operations & On-App Merchandising",
-      company: "Swiggy Limited, Bangalore",
+      company: "Swiggy Limited",
+      location: "Bangalore, India",
       tag: "Swiggy",
       period: "Jun 2019 – Present",
       current: true,
@@ -151,6 +152,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
     {
       id: "exp-jsw",
@@ -161,6 +163,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
     {
       id: "exp-alansari",
@@ -171,6 +174,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
     {
       id: "exp-amazon-qa",
@@ -181,6 +185,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
     {
       id: "exp-ambiquant",
@@ -191,6 +196,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
     {
       id: "exp-ibm",
@@ -201,6 +207,7 @@ export const seedContent: SiteContent = {
       current: false,
       bullets: [],
       tags: [],
+      location: "",
     },
   ],
   certificationsIntro: {

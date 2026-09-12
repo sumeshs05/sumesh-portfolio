@@ -294,6 +294,16 @@ export const seedContent: SiteContent = {
     "React & React Native Fluency",
     "Effective Communication",
   ],
+  aiSkills: [
+    "AI Product Strategy",
+    "AI Roadmap Planning",
+    "AI Use-Case Identification & Prioritization",
+    "Generative AI / LLM Fundamentals",
+    "Prompt Engineering",
+    "Customer Segmentation",
+    "Experimentation / A/B Testing",
+  ],
+  aiTools: ["ChatGPT", "Claude", "Gemini", "Figma AI", "Perplexity", "GitHub Copilot"],
   caseStudiesIntro: {
     kicker: "Independent studies & exploratory notes",
     heading:
@@ -494,7 +504,7 @@ export const seedContent: SiteContent = {
     {
       slug: "insurtech-support-ai",
       domain: "AI Systems",
-      tag: "Product Strategy",
+      tag: "AI Product Strategy",
       color: "emerald",
       title: "AI customer support for insurers",
       hook: "A self-directed strategy exercise: size the AI customer-support market, diagnose why 95% of AI pilots show no P&L impact, and design a 3-phase roadmap that earns autonomy before scale.",

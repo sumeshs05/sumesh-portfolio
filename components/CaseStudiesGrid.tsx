@@ -26,7 +26,7 @@ export default function CaseStudiesGrid({
         path="caseStudiesIntro.kicker"
         isAdmin={isAdmin}
         as="p"
-        className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+        className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
       />
       <EditableText
         value={intro.heading ?? ""}
@@ -60,6 +60,13 @@ export default function CaseStudiesGrid({
                 >
                   <EditableText value={cs.tag} path={`caseStudies.${i}.tag`} isAdmin={isAdmin} as="span" />
                 </span>
+                <EditableText
+                  value={cs.domain}
+                  path={`caseStudies.${i}.domain`}
+                  isAdmin={isAdmin}
+                  as="span"
+                  className="text-[12px] text-text-tertiary"
+                />
               </div>
 
               <EditableText
@@ -77,16 +84,18 @@ export default function CaseStudiesGrid({
                 className="mt-2 text-[13.5px] leading-relaxed text-text-muted"
               />
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {cs.stats.map((s, si) => (
-                  <span
-                    key={si}
-                    className="rounded-lg bg-surface-container px-3 py-1.5 text-[12px] font-medium text-text-primary"
-                  >
-                    {s.value} <span className="text-text-tertiary">{s.label}</span>
-                  </span>
-                ))}
-              </div>
+              {cs.stats.length > 0 && (
+                <div className="mt-4 flex gap-8 rounded-xl border border-border-card bg-background/40 p-4">
+                  {cs.stats.map((s, si) => (
+                    <div key={si}>
+                      <div className={`text-xl font-bold ${si === 0 ? "text-tertiary" : "text-text-primary"}`}>
+                        {s.value}
+                      </div>
+                      <div className="mt-0.5 text-[11px] text-text-muted">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <Link
                 href={`/case-studies/${cs.slug}`}
@@ -107,6 +116,7 @@ export default function CaseStudiesGrid({
             item={{
               slug: `new-study-${Date.now()}`,
               tag: "New category",
+              domain: "New domain",
               color: "violet",
               title: "New case study",
               hook: "One line on what this explores.",

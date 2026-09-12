@@ -1,6 +1,7 @@
 import Image from "next/image";
 import EditableText from "@/components/EditableText";
 import PhotoUploader from "@/components/PhotoUploader";
+import DownloadLink from "@/components/DownloadLink";
 import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
 import { SiteContent } from "@/lib/types";
@@ -60,9 +61,8 @@ export default function Hero({
                 as="span"
               />
             </a>
-            <a
+            <DownloadLink
               href={resumeUrl}
-              download
               className="rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container"
             >
               <EditableText
@@ -71,7 +71,7 @@ export default function Hero({
                 isAdmin={isAdmin}
                 as="span"
               />
-            </a>
+            </DownloadLink>
           </div>
 
           <dl className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-border-subtle pt-8">

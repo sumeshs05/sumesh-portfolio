@@ -1,5 +1,6 @@
 import Link from "next/link";
 import EditableText from "@/components/EditableText";
+import DownloadLink from "@/components/DownloadLink";
 import { NavBrand } from "@/lib/types";
 
 export default function Nav({
@@ -48,13 +49,12 @@ export default function Nav({
           <Link href="/#contact" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
             Contact
           </Link>
-          <a
+          <DownloadLink
             href={resumeUrl}
-            download
             className="ml-2 rounded-full bg-primary px-4 py-2 font-medium text-on-primary hover:bg-primary-container"
           >
             Résumé
-          </a>
+          </DownloadLink>
         </nav>
       </div>
     </header>

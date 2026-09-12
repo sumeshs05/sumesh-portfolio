@@ -1,6 +1,7 @@
 import { Mail, ArrowUpRight, Download } from "lucide-react";
 import EditableText from "@/components/EditableText";
 import ResumeUploader from "@/components/ResumeUploader";
+import DownloadLink from "@/components/DownloadLink";
 import { SiteContent } from "@/lib/types";
 
 export default function Footer({
@@ -49,13 +50,12 @@ export default function Footer({
               >
                 LinkedIn <ArrowUpRight size={15} />
               </a>
-              <a
+              <DownloadLink
                 href={resumeUrl}
-                download
                 className="inline-flex items-center gap-2 rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container-highest"
               >
                 Download résumé <Download size={15} />
-              </a>
+              </DownloadLink>
               {isAdmin && <ResumeUploader />}
             </div>
           </div>

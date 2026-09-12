@@ -13,6 +13,7 @@ export type ExperienceItem = {
   current: boolean;
   bullets: string[];
   tags: string[]; // shown only on the current-role card
+  location: string; // shown only on the current-role card
 };
 
 export type Certification = {

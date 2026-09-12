@@ -73,6 +73,7 @@ function withDefaults(content: SiteContent): SiteContent {
     experienceIntro: { ...seedContent.experienceIntro, ...content.experienceIntro },
     experience: withItemDefaults(content.experience, seedContent.experience, {
       tags: [] as string[],
+      location: "",
     }),
     certificationsIntro: { ...seedContent.certificationsIntro, ...content.certificationsIntro },
     certifications: withItemDefaults(content.certifications, seedContent.certifications, {

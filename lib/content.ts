@@ -80,6 +80,9 @@ function withDefaults(content: SiteContent): SiteContent {
       tagline: "",
     }),
     caseStudiesIntro: { ...seedContent.caseStudiesIntro, ...content.caseStudiesIntro },
+    caseStudies: withItemDefaults(content.caseStudies, seedContent.caseStudies, {
+      domain: "",
+    }),
     skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
   };
 }

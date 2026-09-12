@@ -38,6 +38,7 @@ export type CaseStudySection = {
 export type CaseStudy = {
   slug: string;
   tag: string;
+  domain: string;
   color: "violet" | "emerald" | "amber" | "sky";
   title: string;
   hook: string;

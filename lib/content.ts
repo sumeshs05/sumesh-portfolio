@@ -64,6 +64,10 @@ function withDefaults(content: SiteContent): SiteContent {
     milestonesIntro: { ...seedContent.milestonesIntro, ...content.milestonesIntro },
     milestones: withItemDefaults(content.milestones, seedContent.milestones, {
       tags: [] as string[],
+      badge: "",
+      context: "",
+      verified: "",
+      unit: "",
     }),
     operatingAreasIntro: { ...seedContent.operatingAreasIntro, ...content.operatingAreasIntro },
     operatingAreas: withItemDefaults(content.operatingAreas, seedContent.operatingAreas, {

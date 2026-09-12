@@ -1,6 +1,15 @@
 export type Stat = { value: string; label: string };
 
-export type Milestone = { value: string; label: string; description: string; tags: string[] };
+export type Milestone = {
+  value: string;
+  label: string;
+  description: string;
+  tags: string[];
+  badge: string; // featured-card only, e.g. "Scale Benchmark"
+  context: string; // featured-card only, e.g. "Swiggy Consumer Surface"
+  verified: string; // featured-card only, e.g. "Direct Impact Verified"
+  unit: string; // compact-card only, small label under the number
+};
 
 export type Principle = { title: string; description: string };
 

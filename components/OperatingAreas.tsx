@@ -1,10 +1,14 @@
-import { TrendingUp, IndianRupee, Sparkles, Target } from "lucide-react";
+import { TrendingUp, IndianRupee, Network, Target } from "lucide-react";
 import EditableText from "@/components/EditableText";
 import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
 import { OperatingArea, SectionIntro } from "@/lib/types";
 
-const ICONS = [TrendingUp, IndianRupee, Sparkles, Target];
+const ICONS = [TrendingUp, IndianRupee, Network, Target];
+const ICON_STYLES = [
+  { bg: "bg-primary/12", text: "text-primary" },
+  { bg: "bg-tertiary/12", text: "text-tertiary" },
+];
 
 export default function OperatingAreas({
   intro,
@@ -45,14 +49,15 @@ export default function OperatingAreas({
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {areas.map((a, i) => {
             const Icon = ICONS[i % ICONS.length];
+            const style = ICON_STYLES[i % 2];
             return (
               <div
                 key={i}
                 className="relative rounded-2xl border border-border-card bg-surface-card p-6"
               >
                 {isAdmin && <RemoveButton path="operatingAreas" index={i} />}
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/12">
-                  <Icon size={17} className="text-primary" />
+                <div className={`mb-3 flex h-9 w-9 items-center justify-center rounded-lg ${style.bg}`}>
+                  <Icon size={17} className={style.text} />
                 </div>
                 <EditableText
                   value={a.title}

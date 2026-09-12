@@ -5,6 +5,10 @@ import { AddButton, RemoveButton } from "@/components/ListControls";
 import { Milestone, SectionIntro } from "@/lib/types";
 
 const ICONS = [TrendingUp, Layers, IndianRupee, Award];
+const ICON_STYLES = [
+  { bg: "bg-tertiary/12", text: "text-tertiary" },
+  { bg: "bg-primary/12", text: "text-primary" },
+];
 
 export default function Milestones({
   intro,
@@ -43,14 +47,15 @@ export default function Milestones({
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {milestones.map((m, i) => {
           const Icon = ICONS[i % ICONS.length];
+          const style = ICON_STYLES[i % 2];
           return (
             <div
               key={i}
               className="relative rounded-2xl border border-border-card bg-surface-card p-5"
             >
               {isAdmin && <RemoveButton path="milestones" index={i} />}
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/12">
-                <Icon size={17} className="text-primary" />
+              <div className={`mb-3 flex h-9 w-9 items-center justify-center rounded-lg ${style.bg}`}>
+                <Icon size={17} className={style.text} />
               </div>
               <EditableText
                 value={m.value}

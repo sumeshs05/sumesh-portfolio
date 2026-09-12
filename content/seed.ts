@@ -288,6 +288,7 @@ export const seedContent: SiteContent = {
   caseStudies: [
     {
       slug: "zepto-aov",
+      domain: "Quick-Commerce",
       tag: "Growth Strategy",
       color: "violet",
       title: "Growing Zepto's Average Order Value",
@@ -391,6 +392,7 @@ export const seedContent: SiteContent = {
     },
     {
       slug: "uber-find-my-ride",
+      domain: "Urban Mobility",
       tag: "User Research",
       color: "sky",
       title: "Fixing pickup coordination on Uber",
@@ -475,6 +477,7 @@ export const seedContent: SiteContent = {
     },
     {
       slug: "insurtech-support-ai",
+      domain: "AI Systems",
       tag: "Product Strategy",
       color: "emerald",
       title: "AI customer support for insurers",
@@ -559,6 +562,7 @@ export const seedContent: SiteContent = {
     },
     {
       slug: "nykaa-ux-teardown",
+      domain: "E-Commerce",
       tag: "UX Research",
       color: "amber",
       title: "Where Nykaa loses shoppers",

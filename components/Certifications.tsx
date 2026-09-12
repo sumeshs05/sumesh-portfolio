@@ -19,7 +19,7 @@ export default function Certifications({
           path="certificationsIntro.kicker"
           isAdmin={isAdmin}
           as="p"
-          className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+          className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
         />
         <div className="flex flex-wrap items-end justify-between gap-4">
           <EditableText
@@ -45,33 +45,37 @@ export default function Certifications({
               className="relative rounded-2xl border border-border-card bg-surface-card p-5"
             >
               {isAdmin && <RemoveButton path="certifications" index={i} />}
-              <EditableText
-                value={c.meta}
-                path={`certifications.${i}.meta`}
-                isAdmin={isAdmin}
-                as="div"
-                className="text-[12px] font-medium text-tertiary"
-              />
+              <div className="flex items-center justify-between gap-2">
+                <EditableText
+                  value={c.org}
+                  path={`certifications.${i}.org`}
+                  isAdmin={isAdmin}
+                  as="span"
+                  className="rounded-md border border-border-card px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wide text-text-muted"
+                />
+                <EditableText
+                  value={c.meta}
+                  path={`certifications.${i}.meta`}
+                  isAdmin={isAdmin}
+                  as="span"
+                  className={`text-[12.5px] font-semibold ${
+                    c.meta.trim().toLowerCase() === "completed" ? "text-tertiary" : "text-primary"
+                  }`}
+                />
+              </div>
               <EditableText
                 value={c.title}
                 path={`certifications.${i}.title`}
                 isAdmin={isAdmin}
                 as="div"
-                className="mt-1.5 text-[15px] font-semibold leading-snug text-text-primary"
-              />
-              <EditableText
-                value={c.org}
-                path={`certifications.${i}.org`}
-                isAdmin={isAdmin}
-                as="div"
-                className="mt-1 text-[13px] text-text-muted"
+                className="mt-3 text-[15px] font-semibold leading-snug text-text-primary"
               />
               <EditableText
                 value={c.tagline}
                 path={`certifications.${i}.tagline`}
                 isAdmin={isAdmin}
                 as="div"
-                className="mt-2 border-t border-border-subtle pt-2 text-[12px] text-text-tertiary"
+                className="mt-1.5 text-[12px] text-text-tertiary"
               />
             </div>
           ))}

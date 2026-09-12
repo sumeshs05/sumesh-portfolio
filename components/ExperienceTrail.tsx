@@ -1,3 +1,4 @@
+import { MapPin, Calendar } from "lucide-react";
 import EditableText from "@/components/EditableText";
 import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
@@ -19,7 +20,7 @@ export default function ExperienceTrail({
         path="experienceIntro.kicker"
         isAdmin={isAdmin}
         as="p"
-        className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+        className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
       />
       <EditableText
         value={intro.heading ?? ""}
@@ -39,9 +40,8 @@ export default function ExperienceTrail({
       <div className="relative mt-14">
         {/* Continuous fading connector line, shared across every row */}
         <div
-          className="pointer-events-none absolute top-2 bottom-2 w-px sm:left-[108px]"
+          className="pointer-events-none absolute left-[10px] top-2 bottom-2 w-px sm:left-3"
           style={{
-            left: "10px",
             background:
               "linear-gradient(to bottom, var(--primary) 0%, var(--border-card) 45%, transparent 100%)",
           }}
@@ -51,19 +51,12 @@ export default function ExperienceTrail({
           {experience.map((item, i) => (
             <li
               key={item.id}
-              className={`relative grid grid-cols-[20px_1fr] gap-x-4 sm:grid-cols-[92px_24px_1fr] sm:gap-x-0 ${
+              className={`relative grid grid-cols-[20px_1fr] items-start gap-x-4 sm:grid-cols-[24px_1fr] sm:items-center sm:gap-x-0 ${
                 i === experience.length - 1 ? "" : "pb-10"
               }`}
             >
-              {/* Date — hidden as its own column on mobile, folded into the card instead */}
-              <div className="hidden pt-1 pr-5 text-right sm:block">
-                <span className="text-[12.5px] font-medium tabular-nums text-text-muted">
-                  {item.period}
-                </span>
-              </div>
-
               {/* Node */}
-              <div className="relative col-start-1 row-start-1 flex justify-center pt-1.5 sm:col-start-2">
+              <div className="relative col-start-1 row-start-1 flex justify-center">
                 <span
                   className={
                     item.current
@@ -74,27 +67,55 @@ export default function ExperienceTrail({
               </div>
 
               {/* Content */}
-              <div className="col-start-2 row-start-1 min-w-0 sm:col-start-3">
+              <div className="col-start-2 row-start-1 min-w-0">
                 {item.current ? (
                   <div className="relative rounded-2xl border border-primary/50 bg-surface-card p-6">
                     {isAdmin && <RemoveButton path="experience" index={i} />}
-                    <span className="mb-2 inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Current role
-                    </span>
-                    <EditableText
-                      value={item.role}
-                      path={`experience.${i}.role`}
-                      isAdmin={isAdmin}
-                      as="div"
-                      className="text-[17px] font-semibold text-text-primary"
-                    />
-                    <EditableText
-                      value={item.company}
-                      path={`experience.${i}.company`}
-                      isAdmin={isAdmin}
-                      as="div"
-                      className="mt-0.5 text-sm text-text-muted"
-                    />
+
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <EditableText
+                          value={item.role}
+                          path={`experience.${i}.role`}
+                          isAdmin={isAdmin}
+                          as="span"
+                          className="text-[17px] font-semibold text-text-primary"
+                        />
+                        <span className="text-text-tertiary">·</span>
+                        <EditableText
+                          value={item.company}
+                          path={`experience.${i}.company`}
+                          isAdmin={isAdmin}
+                          as="span"
+                          className="text-[15px] font-semibold text-primary"
+                        />
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-tertiary/12 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-tertiary">
+                          <span className="h-1.5 w-1.5 rounded-full bg-tertiary" /> Current role
+                        </span>
+                      </div>
+                      <span className="hidden shrink-0 items-center gap-1.5 rounded-full bg-surface-container px-3 py-1.5 text-[12px] font-medium text-text-muted sm:inline-flex">
+                        <Calendar size={12} />
+                        <EditableText
+                          value={item.period}
+                          path={`experience.${i}.period`}
+                          isAdmin={isAdmin}
+                          as="span"
+                        />
+                      </span>
+                    </div>
+
+                    {item.location && (
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[13px] text-text-muted">
+                        <MapPin size={13} />
+                        <EditableText
+                          value={item.location}
+                          path={`experience.${i}.location`}
+                          isAdmin={isAdmin}
+                          as="span"
+                        />
+                      </div>
+                    )}
+
                     <EditableText
                       value={item.period}
                       path={`experience.${i}.period`}
@@ -102,10 +123,12 @@ export default function ExperienceTrail({
                       as="span"
                       className="mt-2 inline-block rounded-full bg-surface-container px-3 py-1 text-[12px] font-medium text-text-muted sm:hidden"
                     />
+
                     {item.bullets.length > 0 && (
-                      <ul className="mt-3.5 list-disc space-y-1.5 pl-4 text-[13.5px] leading-relaxed text-text-muted">
+                      <ul className="mt-3.5 space-y-1.5 text-[13.5px] leading-relaxed text-text-muted">
                         {item.bullets.map((b, bi) => (
-                          <li key={bi}>
+                          <li key={bi} className="flex gap-2.5">
+                            <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-primary" />
                             <EditableText
                               value={b}
                               path={`experience.${i}.bullets.${bi}`}
@@ -126,16 +149,17 @@ export default function ExperienceTrail({
                     </div>
                   </div>
                 ) : (
-                  <div className="relative pt-1">
+                  <div className="relative flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-2xl border border-border-card bg-surface-card px-5 py-4">
                     {isAdmin && <RemoveButton path="experience" index={i} />}
-                    <EditableText
-                      value={item.role}
-                      path={`experience.${i}.role`}
-                      isAdmin={isAdmin}
-                      as="div"
-                      className="text-[15px] font-medium text-text-primary"
-                    />
-                    <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <EditableText
+                        value={item.role}
+                        path={`experience.${i}.role`}
+                        isAdmin={isAdmin}
+                        as="span"
+                        className="text-[15px] font-semibold text-text-primary"
+                      />
+                      <span className="text-text-tertiary">·</span>
                       <EditableText
                         value={item.company}
                         path={`experience.${i}.company`}
@@ -143,14 +167,14 @@ export default function ExperienceTrail({
                         as="span"
                         className="text-[13.5px] text-text-muted"
                       />
-                      <EditableText
-                        value={item.period}
-                        path={`experience.${i}.period`}
-                        isAdmin={isAdmin}
-                        as="span"
-                        className="text-[12px] text-text-tertiary sm:hidden"
-                      />
                     </div>
+                    <EditableText
+                      value={item.period}
+                      path={`experience.${i}.period`}
+                      isAdmin={isAdmin}
+                      as="span"
+                      className="text-[12.5px] tabular-nums text-text-tertiary"
+                    />
                   </div>
                 )}
               </div>
@@ -173,6 +197,7 @@ export default function ExperienceTrail({
               current: false,
               bullets: [],
               tags: [],
+              location: "",
             }}
           />
         </div>

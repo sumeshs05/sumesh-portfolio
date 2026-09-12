@@ -69,25 +69,25 @@ export const seedContent: SiteContent = {
       title: "Product scale",
       description:
         "Turning ambiguous problems into clear priorities, instrumented funnels and launches that can survive real operating conditions.",
-      tags: ["Funnel Instrumentation", "Clear Priorities"],
+      tags: ["Funnel Instrumentation", "Clear Priorities", "Operational Resilience"],
     },
     {
       title: "Monetization",
       description:
         "Connecting customer surfaces to measurable commercial models, while keeping user behavior and business trade-offs visible.",
-      tags: ["Commercial Models", "User Behavior"],
+      tags: ["Commercial Models", "User Behavior", "Business Trade-offs"],
     },
     {
       title: "Cross-functional systems",
       description:
         "Creating a dependable rhythm across product, design, engineering, data, finance and operations.",
-      tags: ["Dependable Rhythm", "Stakeholder Alignment"],
+      tags: ["Dependable Rhythm", "Stakeholder Alignment", "Execution Cadence"],
     },
     {
       title: "Business judgment",
       description:
         "Knowing what to push, what to sequence, what to measure and when not to scale a weak signal.",
-      tags: ["Rigorous Sequencing", "Signal Evaluation"],
+      tags: ["Rigorous Sequencing", "Signal Evaluation", "Strategic Trade-offs"],
     },
   ],
   philosophyIntro: {

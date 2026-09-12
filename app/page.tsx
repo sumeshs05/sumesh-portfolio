@@ -28,7 +28,7 @@ export default async function HomePage() {
       <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />
       <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />
       <CaseStudiesGrid intro={content.caseStudiesIntro} caseStudies={content.caseStudies} isAdmin={admin} />
-      <SkillsChips intro={content.skillsIntro} skills={content.skills} isAdmin={admin} />
+      <SkillsChips intro={content.skillsIntro} skills={content.skills} aiSkills={content.aiSkills} aiTools={content.aiTools} isAdmin={admin} />
       <Footer contact={content.contact} roleLabel={content.nav.subtitle} resumeUrl={content.resumeUrl} isAdmin={admin} />
     </div>
   );

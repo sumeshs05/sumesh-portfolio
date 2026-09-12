@@ -35,6 +35,10 @@ export const seedContent: SiteContent = {
       description:
         "Scaled a pan-India on-app widget from 10x to 100x reach, unlocking new monetized ad revenue.",
       tags: ["Pan-India Reach", "Monetized Inventory"],
+      badge: "Scale Benchmark",
+      context: "Swiggy Consumer Surface",
+      verified: "Direct Impact Verified",
+      unit: "",
     },
     {
       value: "5 lines",
@@ -42,6 +46,10 @@ export const seedContent: SiteContent = {
       description:
         "Food, Instamart, Dineout, Genie and Scenes — end-to-end PI planning and roadmap execution across all five.",
       tags: ["PI Planning", "Cross-Line Coordination"],
+      badge: "",
+      context: "",
+      verified: "",
+      unit: "Business Units",
     },
     {
       value: "CPC / CPV",
@@ -49,6 +57,10 @@ export const seedContent: SiteContent = {
       description:
         "Built out CPC and CPV monetization mechanics with traffic distribution, merchandising and brand marketing.",
       tags: ["Ad Mechanics", "Commercial Models"],
+      badge: "",
+      context: "",
+      verified: "",
+      unit: "",
     },
     {
       value: "2x",
@@ -56,6 +68,10 @@ export const seedContent: SiteContent = {
       description:
         "Swiggy Values Champion (League of Champions) and Most Valuable Player, OND 2025.",
       tags: ["League of Champions", "Values Champion"],
+      badge: "",
+      context: "",
+      verified: "",
+      unit: "",
     },
   ],
   operatingAreasIntro: {

@@ -123,19 +123,9 @@ export default function Hero({
               }}
               aria-hidden
             />
-            {/* Layered backing panels for a stacked, dimensional feel */}
-            <div
-              className="absolute inset-0 -z-10 rounded-[28px] border border-border-card bg-surface-container-high"
-              style={{ transform: "rotate(-4deg) translate(10px, 14px)" }}
-              aria-hidden
-            />
-            <div
-              className="absolute inset-0 -z-10 rounded-[28px] border border-primary/25"
-              style={{ transform: "rotate(3deg) translate(-9px, 9px)" }}
-              aria-hidden
-            />
-
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border-card bg-surface-card shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_36px_90px_-24px_rgba(0,0,0,0.6)]">
+            {/* Outer frame — photo sits inset inside with a visible gap */}
+            <div className="relative rounded-[34px] border border-primary/25 bg-surface-container-high/60 p-2.5 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[26px] border border-border-card bg-surface-card">
               {hero.photoUrl ? (
                 <Image
                   src={hero.photoUrl}
@@ -176,6 +166,7 @@ export default function Hero({
                   className="shrink-0 whitespace-nowrap rounded-full bg-tertiary/15 px-2 py-0.5 text-[10.5px] font-semibold text-tertiary"
                 />
               </div>
+            </div>
             </div>
           </div>
 

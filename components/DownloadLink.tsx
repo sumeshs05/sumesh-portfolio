@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from "@vercel/analytics";
+import { trackResumeDownloadAction } from "@/app/actions";
 
 /**
  * A plain <a download> only works when the file is on the same origin.
@@ -23,6 +24,7 @@ export default function DownloadLink({
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     track("Resume Downloaded");
+    trackResumeDownloadAction();
     try {
       const res = await fetch(href);
       const blob = await res.blob();

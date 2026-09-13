@@ -1,5 +1,7 @@
 "use client";
 
+import { track } from "@vercel/analytics";
+
 /**
  * A plain <a download> only works when the file is on the same origin.
  * Once the résumé is uploaded to Vercel Blob (a different domain), browsers
@@ -20,6 +22,7 @@ export default function DownloadLink({
 }) {
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    track("Resume Downloaded");
     try {
       const res = await fetch(href);
       const blob = await res.blob();

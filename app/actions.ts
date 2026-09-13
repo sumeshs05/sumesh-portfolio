@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { put } from "@vercel/blob";
 import { checkPassword, createAdminSession, destroyAdminSession, isAdmin } from "@/lib/auth";
 import { getContent, saveContent, resetContent } from "@/lib/content";
+import { incrementResumeDownloads } from "@/lib/stats";
 import { setByPath, pushByPath, removeByPath } from "@/lib/pathUtils";
 
 export async function loginAction(formData: FormData) {
@@ -100,6 +101,12 @@ export async function uploadResumeAction(formData: FormData) {
   await saveContent(next);
   revalidatePath("/");
   revalidatePath("/case-studies/[slug]", "page");
+}
+
+/** Increments the résumé download counter. No auth required — this fires
+ * for real visitors downloading the résumé, not just admin actions. */
+export async function trackResumeDownloadAction() {
+  await incrementResumeDownloads();
 }
 
 /** Resets all content back to the built-in seed data. */

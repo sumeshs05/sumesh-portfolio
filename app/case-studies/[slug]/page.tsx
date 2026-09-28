@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DocumentLink from "@/components/DocumentLink";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import { isAdmin as checkIsAdmin } from "@/lib/auth";
@@ -32,7 +33,7 @@ export default async function CaseStudyPage({
       <Nav brand={content.nav} resumeUrl={content.resumeUrl} isAdmin={admin} />
 
       <header className="mx-auto max-w-[760px] px-5 pb-10 pt-14 md:px-8">
-        <Link href="/#work" className="mb-7 inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary">
+        <Link href="/#work" className="mb-7 flex w-fit items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary">
           ← Back to all work
         </Link>
 
@@ -73,6 +74,27 @@ export default async function CaseStudyPage({
         <div className="mt-6 rounded-xl border border-border-card bg-surface-card p-4 text-[13.5px] text-text-muted">
           <EditableText value={cs.note} path={`${base}.note`} isAdmin={admin} as="span" />
         </div>
+
+        {(cs.documents.length > 0 || admin) && (
+          <div className="mt-4 flex flex-wrap items-start gap-3">
+            {cs.documents.map((d, di) => (
+              <DocumentLink
+                key={di}
+                doc={d}
+                path={`${base}.documents`}
+                index={di}
+                isAdmin={admin}
+              />
+            ))}
+            {admin && (
+              <AddButton
+                path={`${base}.documents`}
+                label="Add document"
+                item={{ label: "New document (PDF)", url: "/your-file.pdf" }}
+              />
+            )}
+          </div>
+        )}
       </header>
 
       <main className="px-5 py-6 md:px-8">

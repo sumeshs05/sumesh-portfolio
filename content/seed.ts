@@ -144,7 +144,7 @@ export const seedContent: SiteContent = {
   experience: [
     {
       id: "exp-swiggy",
-      role: "Sr. Manager, Project Management — Product Operations & On-App Merchandising",
+      role: "Sr. Manager, Product Management",
       company: "Swiggy Limited",
       location: "Bangalore, India",
       tag: "Swiggy",
@@ -307,7 +307,7 @@ export const seedContent: SiteContent = {
     "Customer Segmentation",
     "Experimentation / A/B Testing",
   ],
-  aiTools: ["ChatGPT", "Claude", "Gemini", "Figma AI", "Perplexity", "GitHub Copilot"],
+  aiTools: ["ChatGPT", "Claude", "Gemini", "Figma AI", "Perplexity", "GitHub", "Google Stitch", "Lovable"],
   caseStudiesIntro: {
     kicker: "Independent studies & exploratory notes",
     heading:

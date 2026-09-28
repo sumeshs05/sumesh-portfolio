@@ -1,5 +1,6 @@
 import { MapPin, Calendar } from "lucide-react";
 import EditableText from "@/components/EditableText";
+import EditableMultiline from "@/components/EditableMultiline";
 import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
 import { ExperienceItem, SectionIntro } from "@/lib/types";
@@ -124,20 +125,31 @@ export default function ExperienceTrail({
                       className="mt-2 inline-block rounded-full bg-surface-container px-3 py-1 text-[12px] font-medium text-text-muted sm:hidden"
                     />
 
-                    {item.bullets.length > 0 && (
-                      <ul className="mt-3.5 space-y-1.5 text-[13.5px] leading-relaxed text-text-muted">
-                        {item.bullets.map((b, bi) => (
-                          <li key={bi} className="flex gap-2.5">
-                            <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-primary" />
-                            <EditableText
-                              value={b}
-                              path={`experience.${i}.bullets.${bi}`}
-                              isAdmin={isAdmin}
-                              as="span"
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                    {isAdmin ? (
+                      <div className="mt-3.5">
+                        <p className="mb-1.5 text-[11px] font-semibold text-primary">
+                          One bullet per line — paste all bullets at once, then click away to save.
+                        </p>
+                        <EditableMultiline
+                          value={item.bullets}
+                          path={`experience.${i}.bullets`}
+                          isAdmin={isAdmin}
+                          separator={"\n"}
+                          placeholder="Add bullets, one per line…"
+                          className="text-[13.5px] leading-relaxed text-text-muted"
+                        />
+                      </div>
+                    ) : (
+                      item.bullets.length > 0 && (
+                        <ul className="mt-3.5 space-y-2 text-[13.5px] leading-relaxed text-text-muted">
+                          {item.bullets.map((b, bi) => (
+                            <li key={bi} className="flex gap-2.5">
+                              <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )
                     )}
                     <div className="mt-4 flex flex-wrap gap-1.5 border-t border-border-subtle pt-4">
                       {item.tags.map((t, ti) => (

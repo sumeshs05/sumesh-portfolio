@@ -117,6 +117,7 @@ export default function CaseStudiesGrid({
               slug: `new-study-${Date.now()}`,
               tag: "New category",
               domain: "New domain",
+              documents: [],
               color: "violet",
               title: "New case study",
               hook: "One line on what this explores.",

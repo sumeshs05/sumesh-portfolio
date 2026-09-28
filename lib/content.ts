@@ -29,22 +29,31 @@ async function writeLocal(content: SiteContent): Promise<void> {
   await fs.writeFile(LOCAL_PATH, JSON.stringify(content, null, 2));
 }
 
-/** Backfills missing fields onto each item of a list. Matches each existing
- * item to the seed item at the same position, so a missing field (like tags
- * added after the item already existed) backfills with that item's own
- * intended default — not a generic blank — while anything already
- * customized on the item always wins. */
+/** Backfills missing fields onto each item of a list without ever
+ * overwriting anything already customized on the item.
+ * - Lists whose items have a stable id (idKey) are matched to the seed item
+ *   with the same id, so removing/reordering items can never shift content
+ *   onto the wrong item.
+ * - Lists without ids are matched by position, but only while the list still
+ *   has the same number of items as the seed (otherwise position is unreliable
+ *   and only the generic fallback is applied). */
 function withItemDefaults<T extends object>(
   items: T[] | undefined,
   seedItems: T[],
-  fallback: Partial<T>
+  fallback: Partial<T>,
+  idKey?: keyof T
 ): T[] {
   const base = items ?? seedItems;
-  return base.map((item, i) => ({
-    ...fallback,
-    ...(seedItems[i] ?? {}),
-    ...item,
-  }));
+  const sameShape = base.length === seedItems.length;
+  return base.map((item, i) => {
+    let seedMatch: T | undefined;
+    if (idKey) {
+      seedMatch = seedItems.find((s) => s[idKey] === item[idKey]);
+    } else if (sameShape) {
+      seedMatch = seedItems[i];
+    }
+    return { ...fallback, ...(seedMatch ?? {}), ...item };
+  });
 }
 
 /**
@@ -75,18 +84,26 @@ function withDefaults(content: SiteContent): SiteContent {
     }),
     philosophyIntro: { ...seedContent.philosophyIntro, ...content.philosophyIntro },
     experienceIntro: { ...seedContent.experienceIntro, ...content.experienceIntro },
-    experience: withItemDefaults(content.experience, seedContent.experience, {
-      tags: [] as string[],
-      location: "",
-    }),
+    experience: withItemDefaults(
+      content.experience,
+      seedContent.experience,
+      { tags: [] as string[], location: "" },
+      "id"
+    ),
     certificationsIntro: { ...seedContent.certificationsIntro, ...content.certificationsIntro },
-    certifications: withItemDefaults(content.certifications, seedContent.certifications, {
-      tagline: "",
-    }),
+    certifications: withItemDefaults(
+      content.certifications,
+      seedContent.certifications,
+      { tagline: "" },
+      "id"
+    ),
     caseStudiesIntro: { ...seedContent.caseStudiesIntro, ...content.caseStudiesIntro },
-    caseStudies: withItemDefaults(content.caseStudies, seedContent.caseStudies, {
-      domain: "",
-    }),
+    caseStudies: withItemDefaults(
+      content.caseStudies,
+      seedContent.caseStudies,
+      { domain: "" },
+      "slug"
+    ),
     skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
     aiSkills: content.aiSkills ?? seedContent.aiSkills,
     aiTools: content.aiTools ?? seedContent.aiTools,

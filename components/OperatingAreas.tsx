@@ -2,7 +2,8 @@ import { TrendingUp, IndianRupee, Network, Target } from "lucide-react";
 import EditableText from "@/components/EditableText";
 import TagChip from "@/components/TagChip";
 import { AddButton, RemoveButton } from "@/components/ListControls";
-import { OperatingArea, SectionIntro } from "@/lib/types";
+import CustomerSuccessBlock from "@/components/CustomerSuccessBlock";
+import { CustomerSuccess, OperatingArea, SectionIntro } from "@/lib/types";
 
 const ICONS = [TrendingUp, IndianRupee, Network, Target];
 const ICON_STYLES = [
@@ -13,10 +14,12 @@ const ICON_STYLES = [
 export default function OperatingAreas({
   intro,
   areas,
+  customerSuccess,
   isAdmin,
 }: {
   intro: SectionIntro;
   areas: OperatingArea[];
+  customerSuccess: CustomerSuccess;
   isAdmin: boolean;
 }) {
   return (
@@ -94,6 +97,8 @@ export default function OperatingAreas({
             />
           </div>
         )}
+
+        <CustomerSuccessBlock cs={customerSuccess} isAdmin={isAdmin} />
       </div>
     </section>
   );

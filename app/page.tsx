@@ -23,7 +23,7 @@ export default async function HomePage() {
       <Nav brand={content.nav} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Hero hero={content.hero} stats={content.stats} resumeUrl={content.resumeUrl} isAdmin={admin} />
       <Milestones intro={content.milestonesIntro} milestones={content.milestones} isAdmin={admin} />
-      <OperatingAreas intro={content.operatingAreasIntro} areas={content.operatingAreas} isAdmin={admin} />
+      <OperatingAreas intro={content.operatingAreasIntro} areas={content.operatingAreas} customerSuccess={content.customerSuccess} isAdmin={admin} />
       <Philosophy intro={content.philosophyIntro} philosophy={content.philosophy} isAdmin={admin} />
       <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />
       <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />

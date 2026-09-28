@@ -44,10 +44,13 @@ export type CaseStudySection = {
   quote?: string;
 };
 
+export type CaseStudyDoc = { label: string; url: string };
+
 export type CaseStudy = {
   slug: string;
   tag: string;
   domain: string;
+  documents: CaseStudyDoc[];
   color: "violet" | "emerald" | "amber" | "sky";
   title: string;
   hook: string;
@@ -121,4 +124,5 @@ export type SiteContent = {
     location: string;
   };
   resumeUrl: string;
+  seededSlugs?: string[];
 };

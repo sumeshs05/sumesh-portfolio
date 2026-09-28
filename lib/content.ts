@@ -56,6 +56,23 @@ function withItemDefaults<T extends object>(
   });
 }
 
+/** Case studies added to the seed after the site first went live. They are
+ * appended once to existing saved content. Their slugs are then recorded in
+ * `seededSlugs`, so deleting one later is respected and never undone. */
+const APPENDED_CASE_STUDY_SLUGS = ["irctc-booking-ux", "vitafit-together"];
+
+function caseStudiesWithAppended(content: SiteContent) {
+  const existing = content.caseStudies ?? seedContent.caseStudies;
+  const handled = new Set(content.seededSlugs ?? []);
+  const additions = seedContent.caseStudies.filter(
+    (cs) =>
+      APPENDED_CASE_STUDY_SLUGS.includes(cs.slug) &&
+      !handled.has(cs.slug) &&
+      !existing.some((c) => c.slug === cs.slug)
+  );
+  return [...existing, ...additions];
+}
+
 /**
  * Reads the full site content document.
  * Uses Upstash Redis when configured (production), otherwise falls back
@@ -100,10 +117,13 @@ function withDefaults(content: SiteContent): SiteContent {
     ),
     caseStudiesIntro: { ...seedContent.caseStudiesIntro, ...content.caseStudiesIntro },
     caseStudies: withItemDefaults(
-      content.caseStudies,
+      caseStudiesWithAppended(content),
       seedContent.caseStudies,
-      { domain: "" },
+      { domain: "", documents: [] },
       "slug"
+    ),
+    seededSlugs: Array.from(
+      new Set([...(content.seededSlugs ?? []), ...APPENDED_CASE_STUDY_SLUGS])
     ),
     skillsIntro: { ...seedContent.skillsIntro, ...content.skillsIntro },
     aiSkills: content.aiSkills ?? seedContent.aiSkills,

@@ -82,6 +82,7 @@ function withDefaults(content: SiteContent): SiteContent {
     operatingAreas: withItemDefaults(content.operatingAreas, seedContent.operatingAreas, {
       tags: [] as string[],
     }),
+    customerSuccess: { ...seedContent.customerSuccess, ...content.customerSuccess },
     philosophyIntro: { ...seedContent.philosophyIntro, ...content.philosophyIntro },
     experienceIntro: { ...seedContent.experienceIntro, ...content.experienceIntro },
     experience: withItemDefaults(

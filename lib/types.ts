@@ -67,6 +67,16 @@ export type SectionIntro = {
 
 export type OperatingArea = { title: string; description: string; tags: string[] };
 
+export type CSPillar = { title: string; points: string[] };
+export type CSStrength = { title: string; description: string };
+export type CustomerSuccess = {
+  title: string;
+  description: string;
+  pillars: CSPillar[];
+  strengths: CSStrength[];
+  tags: string[];
+};
+
 export type NavBrand = { name: string; subtitle: string };
 
 export type SiteContent = {
@@ -87,6 +97,7 @@ export type SiteContent = {
   milestones: Milestone[];
   operatingAreasIntro: SectionIntro;
   operatingAreas: OperatingArea[];
+  customerSuccess: CustomerSuccess;
   philosophyIntro: SectionIntro;
   philosophy: {
     quote: string;

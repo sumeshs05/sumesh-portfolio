@@ -385,6 +385,7 @@ export const seedContent: SiteContent = {
     {
       slug: "zepto-aov",
       domain: "Quick-Commerce",
+      documents: [],
       tag: "Growth Strategy",
       color: "violet",
       title: "Growing Zepto's Average Order Value",
@@ -489,6 +490,7 @@ export const seedContent: SiteContent = {
     {
       slug: "uber-find-my-ride",
       domain: "Urban Mobility",
+      documents: [],
       tag: "User Research",
       color: "sky",
       title: "Fixing pickup coordination on Uber",
@@ -574,6 +576,7 @@ export const seedContent: SiteContent = {
     {
       slug: "insurtech-support-ai",
       domain: "AI Systems",
+      documents: [],
       tag: "AI Product Strategy",
       color: "emerald",
       title: "AI customer support for insurers",
@@ -659,6 +662,7 @@ export const seedContent: SiteContent = {
     {
       slug: "nykaa-ux-teardown",
       domain: "E-Commerce",
+      documents: [],
       tag: "UX Research",
       color: "amber",
       title: "Where Nykaa loses shoppers",
@@ -722,6 +726,284 @@ export const seedContent: SiteContent = {
           ],
         },
       ],
+    },
+    {
+      "slug": "irctc-booking-ux",
+      "domain": "Rail Travel",
+      "documents": [
+        {
+          "label": "Read the full report (PDF, 21 pages)",
+          "url": "/irctc-booking-ux-evaluation.pdf"
+        }
+      ],
+      "tag": "UX Heuristic Evaluation",
+      "color": "amber",
+      "title": "Why booking a train ticket is harder than it needs to be",
+      "hook": "A heuristic evaluation of IRCTC's booking flow: nine usability issues, one root cause — the interface shows the railway's internal model, not the traveller's.",
+      "stats": [
+        {
+          "value": "9",
+          "label": "Usability issues found"
+        },
+        {
+          "value": "3",
+          "label": "Rated severity 4"
+        }
+      ],
+      "scope": "IRCTC web portal and Rail Connect booking flow: search, train selection, traveller details, verification, payment",
+      "methods": "Expert heuristic evaluation: Nielsen's 10 heuristics and 6 UX laws, severity-rated 0–4, walked as two personas",
+      "output": "9 severity-rated issues, a root-cause pattern, prioritised fixes and a measurement plan",
+      "note": "Independent, self-directed evaluation of a public product — not affiliated with or commissioned by IRCTC. No user testing was done, so severity ratings are expert judgement. The annotated screens in the full report are recreations built for annotation, not live screen captures.",
+      "sections": [
+        {
+          "id": "context",
+          "heading": "Why IRCTC",
+          "body": [
+            "IRCTC is the only official channel for booking reserved train travel in India, and about 89% of reserved tickets are now booked online. That makes every point of friction compulsory friction: users can't leave, so poor usability never produces the feedback that would normally force a fix.",
+            "Many people end up routing through third-party aggregators sitting on the same inventory instead. That is exactly the situation a heuristic evaluation is built for, because the method doesn't need users to complain."
+          ],
+          "stats": [
+            {
+              "value": "20,06,353",
+              "label": "tickets booked on 7 Sep 2026 — an IRCTC record"
+            },
+            {
+              "value": "~89%",
+              "label": "of reserved tickets booked online"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "How I evaluated it",
+          "body": [
+            "I walked the full flow twice — once as a first-time traveller, once as an experienced Tatkal booker — and checked every screen against Nielsen's ten heuristics. I then cross-referenced each issue with six UX laws (Hick's, Miller's, Jakob's, Fitts's, the Doherty Threshold and the Aesthetic–Usability Effect) to explain why it costs the user, and severity-rated it from 0 to 4."
+          ],
+          "bullets": [
+            "Kavya, 24 — infrequent traveller on a mid-range Android phone. Doesn't know what RAC, GNWL or PQWL mean. Goal: a confirmed seat home for the holiday without losing money.",
+            "Rahul, 34 — frequent Tatkal booker, fluent in the jargon. Goal: finish the whole flow in under 60 seconds."
+          ]
+        },
+        {
+          "id": "issues",
+          "heading": "The nine issues",
+          "body": [
+            "Three are severity 4 — the kind that cost users money, time or data, and should be fixed before any further feature work."
+          ],
+          "bullets": [
+            "Severity 4 · Availability shown in railway back-office code (GNWL45/WL20, RAC 24, CURR_AVBL, REGRET), with the legend pushed below the fold.",
+            "Severity 4 · The session timer is a silent countdown that destroys entered data when it expires.",
+            "Severity 4 · The payable total changes after the user has committed to a train, and the payment screen marks its own total as not final.",
+            "Severity 3 · The homepage buries the one task most visitors came for under a 12-item nav, a promo carousel, seven cross-sell tiles and an ad slot.",
+            "Severity 3 · The traveller form asks for everything at once: a seven-column table, six unexplained preference checkboxes and a cryptic \"Reservation Choice\".",
+            "Severity 3 · Errors are generic, late and detached from the field — one banner after submit.",
+            "Severity 3 · 24 payment tiles across 13 categories, five of them the same thing (UPI), with fees written five different ways.",
+            "Severity 3 · Going back is punished rather than supported (\"Do not press Back or Refresh\").",
+            "Severity 2 · 28 filter chips on the results page, all at equal weight."
+          ]
+        },
+        {
+          "id": "root",
+          "heading": "One root cause",
+          "body": [
+            "Almost every issue is the same problem in a different costume. That makes most of the fixes translation problems rather than engineering problems — four can be done through copy, validation and default changes alone."
+          ],
+          "quote": "The interface exposes the railway's internal model — quotas, waitlist codes, gateway fee structures, session locks — instead of translating it into the traveller's model, which is only ever: will I get a seat, when do I leave, and what does it cost?"
+        },
+        {
+          "id": "laws",
+          "heading": "Mapped to UX laws",
+          "body": [],
+          "bullets": [
+            "Hick's Law — 28 filter chips, 24 payment tiles and six homepage checkboxes. A Tatkal user with about 30 minutes of inventory is asked to make five non-essential decisions. Cap visible options at 3–5 per decision and defer the rest.",
+            "Miller's Law — a seven-column passenger table repeated per traveller, and class tiles each carrying a code, a count and a percentage. Chunk the form into who is travelling, then preferences.",
+            "Jakob's Law — saved travellers, all-in pricing and one-tap UPI are standard on the travel apps people use daily and largely absent here, one reason many people book rail through aggregators.",
+            "Fitts's Law — roughly 11px checkboxes, and \"Book Now\" sitting beside similar-looking links, on a screen used one-handed at speed. Use 44×44px targets and keep the primary action within thumb reach.",
+            "Doherty Threshold — captcha, then Aadhaar OTP, then a gateway redirect, all inside a countdown with no optimistic feedback.",
+            "Aesthetic–Usability Effect — a dated visual language lowers trust at the exact moment money changes hands."
+          ]
+        },
+        {
+          "id": "recommendations",
+          "heading": "What I'd fix, in order",
+          "body": [],
+          "bullets": [
+            "Fix first · Translate the jargon into plain language — for example \"45 people ahead of you\" with the codes kept as secondary text — so a first-time traveller can tell what each status means and what happens if it doesn't confirm.",
+            "Fix first · Quote one all-inclusive price from the results page through to the receipt.",
+            "Fix first · Specific inline errors validated on blur, with focus moved to the first error and entered data never cleared.",
+            "Fix first · Reframe the timer as a seat hold (\"Seats held for 9:42\"), warn at two minutes with a one-tap Extend, and persist the form so expiry never costs a retype.",
+            "Fix next · Progressive disclosure across search, the traveller form and payment: four high-intent filters, only name, age and gender up front, and payment methods ranked with one consistent fee format.",
+            "Fix next · A persistent, editable trip summary and a server-side seat hold, so going back is always safe.",
+            "Fix next · Skip the captcha for Aadhaar-verified accounts."
+          ]
+        },
+        {
+          "id": "measure",
+          "heading": "How I'd know it worked",
+          "body": [],
+          "bullets": [
+            "Median search-to-payment time, measured separately for Tatkal.",
+            "Drop-off at the traveller and payment steps.",
+            "Form error rate, and session-expiry restarts per booking.",
+            "Share of rail bookings made direct versus through aggregators."
+          ]
+        },
+        {
+          "id": "limits",
+          "heading": "Limits of this evaluation",
+          "body": [
+            "No user testing was done, so every severity rating is an informed judgement rather than an observed failure rate. A single evaluator typically surfaces about a third of what a panel of three to five would, so nine issues is a floor, not a full inventory. IRCTC also released a beta redesign on 15 July 2026, so the findings are framed as principles rather than pixel-level redlines. The natural next step is a moderated test with five to eight participants across both personas.",
+            "Sources: Nielsen Norman Group (ten usability heuristics; severity ratings), Laws of UX, Deccan Herald and Daijiworld reporting on the September 2026 booking record, and Pratt Institute's design critique of the IRCTC website."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "vitafit-together",
+      "domain": "Fitness Tech",
+      "documents": [
+        {
+          "label": "Read the full research & PRD (PDF, 13 pages)",
+          "url": "/vitafit-together-prd.pdf"
+        },
+        {
+          "label": "View the review deck (PDF, 18 pages)",
+          "url": "/vitafit-together-review-deck.pdf"
+        }
+      ],
+      "tag": "PRD & Experimentation",
+      "color": "sky",
+      "title": "VitaFit Together: turning solo workouts into a shared habit",
+      "hook": "A PRD for two features — Squads and Instructor Circles — aimed at the real constraint for an Indian fitness app: keeping users, not finding them.",
+      "stats": [
+        {
+          "value": "8% → 12%",
+          "label": "Day-30 retention target (assumed baseline)"
+        },
+        {
+          "value": "4 groups",
+          "label": "A/B test · 5 cities · 8 weeks"
+        }
+      ],
+      "scope": "Retention for an on-demand fitness app in India, focused on urban professionals aged 22–40 in their first 60 days",
+      "methods": "India and global secondary research, problem framing, PRD, experiment design",
+      "output": "PRD with two features, success metrics and guardrails, a four-group A/B plan and a 20-week rollout",
+      "note": "Independent product-management exercise on a hypothetical brief — not work done for a real company. Baselines marked 'assumed' are placeholders, not real VitaFit data. Market and behaviour figures come from the public sources listed in the full PRD.",
+      "sections": [
+        {
+          "id": "problem",
+          "heading": "The problem: retention, not demand",
+          "body": [
+            "Demand isn't the constraint — India's fitness app market was about USD 521M in 2025 and is growing around 18.7% a year. Keeping users is. People intend to exercise, then motivation and discipline fade within weeks, which caps lifetime value and forces the business to keep paying to re-acquire users."
+          ],
+          "stats": [
+            {
+              "value": "3%",
+              "label": "of health and fitness app users still active on Day 30"
+            },
+            {
+              "value": "11%",
+              "label": "of Indian gym members regular beyond six months (2017 study)"
+            },
+            {
+              "value": "37%",
+              "label": "of Indians exercise, though 46% call health their top priority"
+            }
+          ]
+        },
+        {
+          "id": "causes",
+          "heading": "Two root causes",
+          "body": [],
+          "bullets": [
+            "Drop in motivation — users work out alone, see little visible progress and face no consequence for skipping. When early enthusiasm fades, nothing pulls them back.",
+            "No personal connection with instructors — on-demand video is one-way. The instructor doesn't know the user exists, so there is no relationship and no reason to return to a specific person."
+          ]
+        },
+        {
+          "id": "insights",
+          "heading": "What the India data says to build",
+          "body": [
+            "Each insight is sourced in the full PRD. Two caveats matter: the Gympik study dates from 2017, so it is directional evidence, and there is no public India-specific app-retention benchmark, so I paired the global ~3% Day-30 figure with Gympik's 11% as an Indian proxy."
+          ],
+          "bullets": [
+            "Only 11% of gym members stay regular past six months → Squads create peer accountability.",
+            "42% of exercisers work out for 30 minutes or less → 10–20 minute classes count toward streaks.",
+            "Lack of time is the top barrier (31%) and schedules are unstructured → match Squads by time slot and offer a forgiving streak freeze.",
+            "57% of Indian women are insufficiently active, versus 42% of men → women-only Squads and a home-first experience.",
+            "57% of urban internet users prefer regional-language content → Instructor Circles discoverable by language.",
+            "72.5% of app users are on Android → Android-first, lightweight build.",
+            "Cult.fit's energy meter and star trainers worked → leaderboards inside a Squad only, and instructor-led challenges."
+          ]
+        },
+        {
+          "id": "features",
+          "heading": "Two features that reinforce each other",
+          "body": [
+            "Both live in a new Together tab and appear at onboarding, the post-class screen and the home screen. Notifications are capped at one a day, in the user's chosen time slot. Deliberately out of v1: global public leaderboards and paid 1:1 instructor sessions."
+          ],
+          "bullets": [
+            "Squads (fixes the motivation drop) — small groups of 5–8 matched by goal, time slot and language. They share a weekly class target, a squad streak with one freeze a week (10+ minute classes count) and a light feed of high-fives and nudges. Also: women-only squads, WhatsApp share cards, and auto-rematch after 7 quiet days.",
+            "Instructor Circles (fixes the missing relationship) — users follow an instructor and join their Circle. Each instructor runs a 4-week themed challenge with badges at weeks 1, 2 and 4, live name shoutouts and weekly voice notes; finishers unlock a 20-person live Q&A. Also: regional-language instructors and festival editions such as Yoga Day, Navratri and Diwali.",
+            "Together — a Squad can take on an instructor's challenge as a group, so peers and instructor both pull the user back."
+          ]
+        },
+        {
+          "id": "metrics",
+          "heading": "How success is measured",
+          "body": [
+            "The North Star is Weekly Active Exercisers: users who complete two or more classes in a week. The baselines below are assumed placeholders, to be replaced with VitaFit's real data before launch."
+          ],
+          "stats": [
+            {
+              "value": "8% → 12%",
+              "label": "Day-30 retention (assumed baseline → target)"
+            },
+            {
+              "value": "1.4 → 2.0",
+              "label": "Classes per active user per week"
+            },
+            {
+              "value": "18% → 25%",
+              "label": "Users active 4+ of their first 8 weeks"
+            }
+          ],
+          "bullets": [
+            "Feature targets: 35% of new users join a Squad in week 1, 30% join a Circle, and repeat classes with the same instructor rise 40% versus control.",
+            "Guardrails: notification opt-outs rise by no more than 2 points, Squad leave/report rate stays under 5%, and app rating and NPS don't drop.",
+            "Instructor time spent on Circles stays within two hours a week."
+          ]
+        },
+        {
+          "id": "experiment",
+          "heading": "Experiment and rollout",
+          "body": [
+            "Two hypotheses. H1: new users who join a Squad with a shared goal and streak lift Day-30 retention by at least 3 points, because peer accountability replaces fading motivation. H2: users who join a Circle take 40% more repeat classes with that instructor, because a relationship gives them a reason to return.",
+            "To test each feature alone and together, new users in five cities are split into four groups for eight weeks — control, Squads only, Circles only, and both — at about 4,000 users per group, to be confirmed with a data team. The timeline assumes one small squad: two mobile engineers, one backend engineer, one designer and one PM."
+          ],
+          "bullets": [
+            "Validate (weeks 1–6) · 15 user interviews, wireframes and clickable prototype tests; confirm baselines.",
+            "MVP beta (weeks 7–11) · 500 opt-in users; Squads with goal, streak and feed; five instructors with one challenge each.",
+            "A/B test (weeks 12–20) · four groups, five cities, eight weeks.",
+            "Scale (week 22+) · winning variant to all users, then festival challenges timed to Navratri and Diwali."
+          ]
+        },
+        {
+          "id": "risks",
+          "heading": "Risks, assumptions and open questions",
+          "body": [
+            "Three internal figures are hypotheses to validate, not facts: about 60% of churned users attended fewer than three classes in their first 14 days; under 15% ever take a second class with the same instructor; and users who complete two or more classes in week 1 retain about twice as well at Day 30."
+          ],
+          "bullets": [
+            "Squads go quiet → auto-rematch after 7 days of inactivity, and seed each Squad with at least two active users.",
+            "Social comparison hurts wellbeing, especially for women → no global leaderboards, progress shown at Squad level, private stats by default.",
+            "Streak pressure leads to burnout → a weekly freeze, 10-minute classes count, no penalties for missed days.",
+            "Instructors lack time → templated voice notes, a live-class dashboard for shoutouts and a two-hour weekly cap.",
+            "Open question: what are VitaFit's real Day-30 retention and classes-per-week baselines?",
+            "Open question: how many instructors can commit to a Circle at launch, and should Squads be open to free users?"
+          ]
+        }
+      ]
     },
   ],
   contact: {

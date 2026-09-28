@@ -106,6 +106,72 @@ export const seedContent: SiteContent = {
       tags: ["Rigorous Sequencing", "Signal Evaluation", "Strategic Trade-offs"],
     },
   ],
+  customerSuccess: {
+    "title": "Customer Success",
+    "description": "Drive client success and satisfaction with the stakeholder, delivery and ROI discipline I run daily at Swiggy — internal stakeholders as the clients, outcomes as the measure.",
+    "pillars": [
+      {
+        "title": "Client success & satisfaction",
+        "points": [
+          "Primary day-to-day contact for Product, Design, Ops, Finance and Config stakeholders across five business lines",
+          "Clear expectations on scope, timelines and deliverables, backed by consistent, proactive updates",
+          "Continuous read on stakeholder sentiment and CSAT across concurrent launches, with risks flagged early"
+        ]
+      },
+      {
+        "title": "Delivery execution",
+        "points": [
+          "Run delivery cadences end to end: planning, sprint ceremonies, stakeholder reviews, retrospectives",
+          "Full visibility across concurrent launches — progress, dependencies and risks tracked so nothing slips",
+          "Bridge technical and business teams with clear, structured communication"
+        ]
+      },
+      {
+        "title": "Revenue expansion",
+        "points": [
+          "Read performance signals to find monetization avenues, then built CPC and CPV models to capture them",
+          "Document outcomes, impact and ROI so every launch strengthens the next conversation",
+          "Shape roadmaps and longer-term plans from measured results"
+        ]
+      },
+      {
+        "title": "Collaborate & grow",
+        "points": [
+          "Work daily with Product, Design, Engineering, Data, Finance and Ops",
+          "Continuously refine delivery tracking, stakeholder management and reporting processes",
+          "Champion a client-first mindset: success is business impact, not delivery completion"
+        ]
+      }
+    ],
+    "strengths": [
+      {
+        "title": "Client-centric mindset",
+        "description": "Success is business impact, not delivery completion. Proactive in spotting and meeting stakeholder needs."
+      },
+      {
+        "title": "Execution & coordination",
+        "description": "Many workstreams at once, strong attention to detail, steady in fast-moving environments, risks caught early."
+      },
+      {
+        "title": "Communication & collaboration",
+        "description": "Clear, structured and confident with technical and business audiences; complex topics turned into actionable insight."
+      },
+      {
+        "title": "AI-native & analytical",
+        "description": "ChatGPT, Claude, Gemini and Perplexity for summaries, reporting and analysis; a functional grasp of AI-driven solutions; data-led tracking of success."
+      },
+      {
+        "title": "Background",
+        "description": "12 years across product delivery, business development and operations, with a strong interest in AI-driven transformation and consulting."
+      }
+    ],
+    "tags": [
+      "Stakeholder & Expectation Management",
+      "Risk & Dependency Tracking",
+      "Outcome & ROI Reporting",
+      "Delivery Cadences"
+    ]
+  },
   philosophyIntro: {
     kicker: "Philosophy & ethos",
   },

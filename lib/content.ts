@@ -56,6 +56,19 @@ function withItemDefaults<T extends object>(
   });
 }
 
+/** Promotion to General Manager (Sep 2026). Updates the current Swiggy role
+ * only while its title still starts with "Sr. Manager", so it never touches
+ * a title that has been customised in some other way. */
+function applyPromotion<T extends { id: string; role: string }>(item: T): T {
+  if (item.id === "exp-swiggy" && /^Sr\.?\s*Manager/i.test(item.role)) {
+    return {
+      ...item,
+      role: item.role.replace(/^Sr\.?\s*Manager/i, "General Manager").replace(/\s{2,}/g, " "),
+    };
+  }
+  return item;
+}
+
 /** Case studies added to the seed after the site first went live. They are
  * appended once to existing saved content. Their slugs are then recorded in
  * `seededSlugs`, so deleting one later is respected and never undone. */
@@ -107,7 +120,9 @@ function withDefaults(content: SiteContent): SiteContent {
       seedContent.experience,
       { tags: [] as string[], location: "" },
       "id"
-    ),
+    ).map(applyPromotion),
+    projectsIntro: { ...seedContent.projectsIntro, ...content.projectsIntro },
+    projects: content.projects ?? seedContent.projects,
     certificationsIntro: { ...seedContent.certificationsIntro, ...content.certificationsIntro },
     certifications: withItemDefaults(
       content.certifications,

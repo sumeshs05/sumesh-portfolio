@@ -25,6 +25,8 @@ export type ExperienceItem = {
   location: string; // shown only on the current-role card
 };
 
+export type Project = { title: string; description: string; category: string };
+
 export type Certification = {
   id: string;
   title: string;
@@ -108,6 +110,8 @@ export type SiteContent = {
   };
   experienceIntro: SectionIntro;
   experience: ExperienceItem[];
+  projectsIntro: SectionIntro;
+  projects: Project[];
   certificationsIntro: SectionIntro;
   certifications: Certification[];
   caseStudiesIntro: SectionIntro;

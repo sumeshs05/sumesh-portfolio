@@ -7,6 +7,7 @@ import Milestones from "@/components/Milestones";
 import OperatingAreas from "@/components/OperatingAreas";
 import Philosophy from "@/components/Philosophy";
 import ExperienceTrail from "@/components/ExperienceTrail";
+import ProjectsSection from "@/components/ProjectsSection";
 import Certifications from "@/components/Certifications";
 import CaseStudiesGrid from "@/components/CaseStudiesGrid";
 import SkillsChips from "@/components/SkillsChips";
@@ -26,6 +27,7 @@ export default async function HomePage() {
       <OperatingAreas intro={content.operatingAreasIntro} areas={content.operatingAreas} customerSuccess={content.customerSuccess} isAdmin={admin} />
       <Philosophy intro={content.philosophyIntro} philosophy={content.philosophy} isAdmin={admin} />
       <ExperienceTrail intro={content.experienceIntro} experience={content.experience} isAdmin={admin} />
+      <ProjectsSection intro={content.projectsIntro} projects={content.projects} isAdmin={admin} />
       <Certifications intro={content.certificationsIntro} certifications={content.certifications} isAdmin={admin} />
       <CaseStudiesGrid intro={content.caseStudiesIntro} caseStudies={content.caseStudies} isAdmin={admin} />
       <SkillsChips intro={content.skillsIntro} skills={content.skills} aiSkills={content.aiSkills} aiTools={content.aiTools} isAdmin={admin} />

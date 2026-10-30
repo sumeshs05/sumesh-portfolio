@@ -3,9 +3,9 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sumesh S — Senior Product / Program Manager",
+  title: "Sumesh S — General Manager, Product Management",
   description:
-    "Sumesh S — Senior Product / Program Manager. 12 years shipping consumer products, 7+ years at Swiggy. Case studies, experience, and contact.",
+    "Sumesh S — General Manager, Product Management at Swiggy. 12 years shipping consumer products, 7+ years at Swiggy. Case studies, experience, and contact.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

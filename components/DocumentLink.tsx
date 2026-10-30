@@ -6,7 +6,7 @@ import EditableText from "@/components/EditableText";
 import { removeListItemAction } from "@/app/actions";
 
 const pill =
-  "inline-flex items-center gap-2 rounded-full border border-border-card px-5 py-3 text-sm font-semibold text-text-primary";
+  "pill-secondary press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold";
 
 export default function DocumentLink({
   doc,
@@ -27,7 +27,7 @@ export default function DocumentLink({
         href={doc.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${pill} hover:bg-surface-container`}
+        className={pill}
       >
         <FileText size={15} />
         <span>{doc.label}</span>
@@ -52,7 +52,7 @@ export default function DocumentLink({
           {pending ? "…" : "×"}
         </button>
       </span>
-      <span className="px-3 text-[11px] text-text-tertiary">
+      <span className="px-3 text-[12px] text-text-tertiary">
         File path:{" "}
         <EditableText value={doc.url} path={`${path}.${index}.url`} isAdmin as="span" />
       </span>

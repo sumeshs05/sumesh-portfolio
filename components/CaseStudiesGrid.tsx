@@ -91,7 +91,7 @@ export default function CaseStudiesGrid({
                       <div className={`text-xl font-bold ${si === 0 ? "text-tertiary" : "text-text-primary"}`}>
                         {s.value}
                       </div>
-                      <div className="mt-0.5 text-[11px] text-text-muted">{s.label}</div>
+                      <div className="mt-0.5 text-[12px] text-text-muted">{s.label}</div>
                     </div>
                   ))}
                 </div>

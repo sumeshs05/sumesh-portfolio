@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import LoginForm from "@/components/LoginForm";
+
+export const metadata: Metadata = {
+  title: "Admin sign-in",
+  robots: { index: false, follow: false },
+};
 
 export default async function AdminLoginPage({
   searchParams,
@@ -7,7 +13,7 @@ export default async function AdminLoginPage({
 }) {
   const params = await searchParams;
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-5">
+    <main id="main" className="flex min-h-screen items-center justify-center bg-background px-5">
       <LoginForm hasError={params.error === "1"} />
     </main>
   );

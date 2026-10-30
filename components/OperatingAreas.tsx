@@ -30,7 +30,7 @@ export default function OperatingAreas({
           path="operatingAreasIntro.kicker"
           isAdmin={isAdmin}
           as="p"
-          className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-text-tertiary"
+          className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
         />
         <div className="flex flex-wrap items-end justify-between gap-4">
           <EditableText

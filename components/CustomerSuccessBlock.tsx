@@ -31,16 +31,16 @@ export default function CustomerSuccessBlock({
             path="customerSuccess.description"
             isAdmin={isAdmin}
             as="p"
-            className="mt-1.5 max-w-[70ch] text-[13.5px] leading-relaxed text-text-muted"
+            className="mt-1.5 max-w-[60ch] text-[13.5px] leading-relaxed text-text-muted"
           />
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
+      <div className="mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2">
         {cs.pillars.map((p, i) => (
           <div
             key={i}
-            className="relative rounded-xl border border-border-subtle bg-background/40 p-5"
+            className="relative border-t border-border-subtle pt-5"
           >
             {isAdmin && <RemoveButton path="customerSuccess.pillars" index={i} />}
             <EditableText
@@ -51,7 +51,7 @@ export default function CustomerSuccessBlock({
               className="text-[14.5px] font-semibold text-text-primary"
             />
             {isAdmin && (
-              <p className="mb-1 mt-2 text-[11px] font-semibold text-primary">One point per line</p>
+              <p className="mb-1 mt-2 text-[12px] font-semibold text-primary">One point per line</p>
             )}
             <div className="mt-2.5">
               <EditableMultiline
@@ -76,13 +76,13 @@ export default function CustomerSuccessBlock({
         </div>
       )}
 
-      <div className="mt-6 border-t border-border-subtle pt-5">
+      <div className="mt-10">
         <p className="mb-3 text-[12px] font-semibold uppercase tracking-wide text-text-tertiary">
           How I work
         </p>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-5">
           {cs.strengths.map((s, i) => (
-            <div key={i} className="relative rounded-xl bg-surface-container/60 p-4">
+            <div key={i} className="relative border-t border-border-subtle pt-4">
               {isAdmin && <RemoveButton path="customerSuccess.strengths" index={i} />}
               <EditableText
                 value={s.title}

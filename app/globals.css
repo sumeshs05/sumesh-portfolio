@@ -14,13 +14,18 @@
   --on-primary: #0a0012;
   --text-primary: #fafafa;
   --text-muted: #a1a1aa;
-  --text-tertiary: #71717a;
+  /* 4.8:1 on the lightest card surface (was #71717a at 3.5:1, failing AA) */
+  --text-tertiary: #8e8e9a;
   --tertiary: #34d399;
   --danger: #ef4444;
   --outline: #334155;
   --outline-variant: #27272a;
 
   --font-geist-sans: 'Geist', system-ui, sans-serif;
+
+  /* Motion tokens: strong ease-out so UI responds instantly, then settles */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @theme inline {
@@ -49,11 +54,74 @@
   box-sizing: border-box;
 }
 
+/* Smooth scrolling is handled by Lenis (components/SmoothScroll.tsx).
+   Native smooth scroll must stay off or the two stack and feel laggy. */
 html {
-  scroll-behavior: smooth;
+  /* Anchored sections land 40px from the top. Each section already has its own
+     internal top padding, which clears the ~80px sticky nav. Lenis, Next and
+     native anchors all read this one value. */
+  scroll-padding-top: 2.5rem;
 }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@layer base {
+  /* Balanced headings and no single-word last lines */
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p, li, blockquote {
+    text-wrap: pretty;
+  }
+  h2 {
+    letter-spacing: -0.02em;
+  }
+
+  /* Visible keyboard focus on everything interactive */
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Numbers that should line up (stats, dates) */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Press feedback: pressable things should feel like they heard you */
+.press {
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* Secondary pill: filled surface, no ghost border (Framer system) */
+.pill-secondary {
+  background: var(--surface-container);
+  color: var(--text-primary);
+}
+@media (hover: hover) and (pointer: fine) {
+  .pill-secondary:hover {
+    background: var(--surface-container-highest);
+  }
 }
 
 body {
@@ -88,17 +156,57 @@ body {
   letter-spacing: 0.02em;
 }
 
-.spin-slow {
-  animation: spin-slow 5s linear infinite;
-}
-@keyframes spin-slow {
-  to { transform: rotate(360deg); }
-}
-
 .glow-pulse {
   animation: glow-pulse 3.2s ease-in-out infinite;
 }
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.4; transform: scale(0.94); }
   50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* One orchestrated page-load moment: the hero rises in, staggered.
+   Everything else on the page stays still until the visitor acts. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: rise 460ms var(--ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+}
+
+/* Reduced motion: keep it calm. Hold the glow still, drop movement. */
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse {
+    animation: none;
+    opacity: 0.7;
+    transform: none;
+  }
+  .press:active {
+    transform: none;
+  }
+}
+
+/* Mobile menu panel: scales in from its trigger corner (origin-aware) */
+.menu-panel {
+  opacity: 0;
+  transform: scale(0.96) translateY(-4px);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+.menu-panel[data-open="true"] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-panel {
+    transform: none;
+    transition: opacity 120ms ease;
+  }
 }

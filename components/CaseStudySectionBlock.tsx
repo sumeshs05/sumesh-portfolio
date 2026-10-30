@@ -44,7 +44,7 @@ export default function CaseStudySectionBlock({
           path={`${base}.quote`}
           isAdmin={isAdmin}
           as="blockquote"
-          className="my-6 border-l-4 border-primary pl-6 text-[1.2rem] font-medium leading-snug text-text-primary"
+          className="my-8 text-[1.3rem] font-medium leading-snug tracking-[-0.01em] text-text-primary before:mr-1 before:text-[1.6em] before:leading-none before:text-primary before:content-['“']"
         />
       )}
 

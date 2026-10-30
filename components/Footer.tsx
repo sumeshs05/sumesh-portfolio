@@ -38,7 +38,7 @@ export default function Footer({
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
+                className="press inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
               >
                 <Mail size={15} /> {contact.email}
               </a>
@@ -46,13 +46,13 @@ export default function Footer({
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container-highest"
+                className="pill-secondary press inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold"
               >
                 LinkedIn <ArrowUpRight size={15} />
               </a>
               <DownloadLink
                 href={resumeUrl}
-                className="inline-flex items-center gap-2 rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container-highest"
+                className="pill-secondary press inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold"
               >
                 Download résumé <Download size={15} />
               </DownloadLink>

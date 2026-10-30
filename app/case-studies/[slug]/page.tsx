@@ -32,7 +32,8 @@ export default async function CaseStudyPage({
       {admin && <AdminBar />}
       <Nav brand={content.nav} resumeUrl={content.resumeUrl} isAdmin={admin} />
 
-      <header className="mx-auto max-w-[760px] px-5 pb-10 pt-14 md:px-8">
+      <main id="main">
+      <div className="mx-auto max-w-[760px] px-5 pb-10 pt-14 md:px-8">
         <Link href="/#work" className="mb-7 flex w-fit items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary">
           ← Back to all work
         </Link>
@@ -95,9 +96,9 @@ export default async function CaseStudyPage({
             )}
           </div>
         )}
-      </header>
+      </div>
 
-      <main className="px-5 py-6 md:px-8">
+      <div className="px-5 py-6 md:px-8">
         {cs.sections.map((section, sIndex) => (
           <CaseStudySectionBlock
             key={section.id}
@@ -122,7 +123,7 @@ export default async function CaseStudyPage({
             />
           </div>
         )}
-      </main>
+      </div>
 
       <section className="border-y border-border-subtle bg-surface-container-high py-12">
         <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-5 px-5 md:px-8">
@@ -138,6 +139,7 @@ export default async function CaseStudyPage({
           </Link>
         </div>
       </section>
+      </main>
 
       <Footer contact={content.contact} roleLabel={content.nav.subtitle} resumeUrl={content.resumeUrl} isAdmin={admin} />
     </div>

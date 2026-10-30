@@ -23,7 +23,7 @@ export default function SkillsChips({
         path="skillsIntro.kicker"
         isAdmin={isAdmin}
         as="p"
-        className="mb-2 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
+        className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
       />
       <EditableText
         value={intro.heading ?? ""}

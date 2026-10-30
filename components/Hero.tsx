@@ -23,7 +23,7 @@ export default function Hero({
     <header className="mx-auto max-w-[1160px] px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
       <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
         <div>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-border-card bg-surface-card px-3.5 py-1.5 text-[13px] font-medium text-text-muted">
+          <span style={{ "--i": 0 } as React.CSSProperties} className="hero-rise mb-6 inline-flex items-center gap-2 rounded-full border border-border-card bg-surface-card px-3.5 py-1.5 text-[13px] font-medium text-text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-tertiary" />
             <EditableText
               value={hero.eyebrow}
@@ -38,7 +38,7 @@ export default function Hero({
             path="hero.headline"
             isAdmin={isAdmin}
             as="h1"
-            className="text-[2.4rem] font-semibold leading-[1.08] tracking-[-0.02em] text-text-primary sm:text-[3rem] lg:text-[3.4rem]"
+            className="hero-rise text-[2.4rem] font-semibold leading-[1.08] tracking-[-0.03em] text-text-primary sm:text-[3rem] lg:text-[3.4rem] [--i:1]"
           />
 
           <EditableText
@@ -46,13 +46,13 @@ export default function Hero({
             path="hero.intro"
             isAdmin={isAdmin}
             as="p"
-            className="mt-6 max-w-[52ch] text-[1.05rem] leading-relaxed text-text-muted"
+            className="hero-rise mt-6 max-w-[52ch] text-[1.05rem] leading-relaxed text-text-muted [--i:2]"
           />
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="hero-rise mt-8 flex flex-wrap gap-3 [--i:3]">
             <a
               href="/#work"
-              className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
+              className="press rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-on-primary hover:bg-primary-container"
             >
               <EditableText
                 value={hero.ctaPrimaryLabel}
@@ -63,7 +63,7 @@ export default function Hero({
             </a>
             <DownloadLink
               href={resumeUrl}
-              className="rounded-full border border-border-card px-6 py-3.5 text-sm font-semibold text-text-primary hover:bg-surface-container"
+              className="pill-secondary press rounded-full px-6 py-3.5 text-sm font-semibold"
             >
               <EditableText
                 value={hero.ctaSecondaryLabel}
@@ -74,16 +74,16 @@ export default function Hero({
             </DownloadLink>
           </div>
 
-          <dl className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-border-subtle pt-8">
+          <ul className="hero-rise mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-border-subtle pt-8 [--i:4]">
             {stats.map((s, i) => (
-              <div key={i} className="relative">
+              <li key={i} className="relative list-none">
                 {isAdmin && <RemoveButton path="stats" index={i} />}
                 <EditableText
                   value={s.value}
                   path={`stats.${i}.value`}
                   isAdmin={isAdmin}
                   as="div"
-                  className={`text-2xl font-semibold ${STAT_COLORS[i % STAT_COLORS.length]}`}
+                  className={`tabular text-2xl font-semibold ${STAT_COLORS[i % STAT_COLORS.length]}`}
                 />
                 <EditableText
                   value={s.label}
@@ -92,9 +92,9 @@ export default function Hero({
                   as="div"
                   className="text-[13px] text-text-muted"
                 />
-              </div>
+              </li>
             ))}
-          </dl>
+          </ul>
           {isAdmin && (
             <div className="mt-3">
               <AddButton
@@ -106,7 +106,7 @@ export default function Hero({
           )}
         </div>
 
-        <div>
+        <div className="hero-rise [--i:2]">
           <div className="relative mx-auto w-full max-w-[340px]">
             {/* Breathing glow — the photo itself never moves */}
             <div
@@ -120,9 +120,10 @@ export default function Hero({
               {hero.photoUrl ? (
                 <Image
                   src={hero.photoUrl}
-                  alt="Sumesh S"
+                  alt="Portrait of Sumesh S"
                   fill
                   sizes="340px"
+                  priority
                   className="object-cover"
                 />
               ) : (
@@ -147,14 +148,14 @@ export default function Hero({
                   path="hero.captionLine"
                   isAdmin={isAdmin}
                   as="span"
-                  className="text-[11px] font-medium text-text-muted"
+                  className="text-[12px] font-medium text-text-muted"
                 />
                 <EditableText
                   value={hero.captionBadge}
                   path="hero.captionBadge"
                   isAdmin={isAdmin}
                   as="span"
-                  className="shrink-0 whitespace-nowrap rounded-full bg-tertiary/15 px-2 py-0.5 text-[10.5px] font-semibold text-tertiary"
+                  className="shrink-0 whitespace-nowrap rounded-full bg-tertiary/15 px-2 py-0.5 text-[12px] font-semibold text-tertiary"
                 />
               </div>
             </div>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import EditableText from "@/components/EditableText";
 import DownloadLink from "@/components/DownloadLink";
+import MobileMenu from "@/components/MobileMenu";
+import { NAV_LINKS } from "@/lib/navLinks";
 import { NavBrand } from "@/lib/types";
 
 export default function Nav({
@@ -32,30 +34,28 @@ export default function Nav({
               path="nav.subtitle"
               isAdmin={isAdmin}
               as="span"
-              className="text-[10.5px] font-semibold uppercase tracking-wide text-text-tertiary"
+              className="text-[12px] font-semibold uppercase tracking-wide text-text-tertiary"
             />
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 text-sm text-text-muted md:flex">
-          <Link href="/#impact" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            Impact
-          </Link>
-          <Link href="/#experience" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            Experience
-          </Link>
-          <Link href="/#work" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            Thinking
-          </Link>
-          <Link href="/#contact" className="rounded-full px-3.5 py-2 hover:bg-surface-container hover:text-text-primary">
-            Contact
-          </Link>
+        <nav aria-label="Primary" className="hidden items-center gap-1 text-sm text-text-muted md:flex">
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="rounded-full px-3.5 py-2 transition-colors hover:bg-surface-container hover:text-text-primary"
+            >
+              {l.label}
+            </Link>
+          ))}
           <DownloadLink
             href={resumeUrl}
-            className="ml-2 rounded-full bg-primary px-4 py-2 font-medium text-on-primary hover:bg-primary-container"
+            className="press ml-2 rounded-full bg-primary px-4 py-2 font-medium text-on-primary hover:bg-primary-container"
           >
             Résumé
           </DownloadLink>
         </nav>
+        <MobileMenu links={NAV_LINKS} resumeUrl={resumeUrl} />
       </div>
     </header>
   );

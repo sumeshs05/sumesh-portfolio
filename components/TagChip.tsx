@@ -18,7 +18,7 @@ export default function TagChip({
   const [pending, startTransition] = useTransition();
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-md border border-border-card bg-surface-container px-2.5 py-1 text-[11px] font-medium text-text-muted">
+    <span className="inline-flex items-center gap-1.5 rounded-md border border-border-card bg-surface-container px-2.5 py-1 text-[12px] font-medium text-text-muted">
       <EditableText value={tag} path={`${path}.${index}`} isAdmin={isAdmin} as="span" />
       {isAdmin && (
         <button

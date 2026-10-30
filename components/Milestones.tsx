@@ -49,7 +49,7 @@ function FeaturedCard({ m, i, isAdmin }: { m: Milestone; i: number; isAdmin: boo
     >
       {isAdmin && <RemoveButton path="milestones" index={i} />}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-tertiary/40 bg-tertiary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-tertiary">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-tertiary/40 bg-tertiary/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-wide text-tertiary">
           <span className="h-1.5 w-1.5 rounded-full bg-tertiary" />
           <EditableText value={m.badge} path={`${path}.badge`} isAdmin={isAdmin} as="span" />
         </span>
@@ -110,7 +110,7 @@ function CompactCard({ m, i, isAdmin }: { m: Milestone; i: number; isAdmin: bool
           path={`${path}.unit`}
           isAdmin={isAdmin}
           as="div"
-          className="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-text-tertiary"
+          className="mt-0.5 text-[12px] font-semibold uppercase tracking-wide text-text-tertiary"
         />
       )}
       <EditableText
@@ -150,7 +150,7 @@ export default function Milestones({
         path="milestonesIntro.kicker"
         isAdmin={isAdmin}
         as="p"
-        className="mb-2 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
+        className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-primary"
       />
       <div className="flex flex-wrap items-end justify-between gap-4">
         <EditableText

@@ -44,18 +44,13 @@ export default function ProjectsSection({
             className="relative rounded-2xl border border-border-card bg-surface-card p-6"
           >
             {isAdmin && <RemoveButton path="projects" index={i} />}
-            <div className="flex items-center justify-between gap-3">
-              <span className="font-mono text-[13px] font-semibold text-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <EditableText
-                value={p.category}
-                path={`projects.${i}.category`}
-                isAdmin={isAdmin}
-                as="span"
-                className="rounded-md border border-border-card bg-surface-container px-2.5 py-1 text-[11px] font-medium text-text-muted"
-              />
-            </div>
+            <EditableText
+              value={p.category}
+              path={`projects.${i}.category`}
+              isAdmin={isAdmin}
+              as="span"
+              className="inline-block rounded-md border border-border-card bg-surface-container px-2.5 py-1 text-[12px] font-medium text-text-muted"
+            />
             <EditableText
               value={p.title}
               path={`projects.${i}.title`}

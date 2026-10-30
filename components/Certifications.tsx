@@ -51,7 +51,7 @@ export default function Certifications({
                   path={`certifications.${i}.org`}
                   isAdmin={isAdmin}
                   as="span"
-                  className="rounded-md border border-border-card px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wide text-text-muted"
+                  className="rounded-md border border-border-card px-2 py-0.5 text-[12px] font-semibold uppercase tracking-wide text-text-muted"
                 />
                 <EditableText
                   value={c.meta}

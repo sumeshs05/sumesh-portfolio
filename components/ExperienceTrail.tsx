@@ -90,7 +90,7 @@ export default function ExperienceTrail({
                           as="span"
                           className="text-[15px] font-semibold text-primary"
                         />
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-tertiary/12 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-tertiary">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-tertiary/12 px-2.5 py-1 text-[12px] font-semibold uppercase tracking-wide text-tertiary">
                           <span className="h-1.5 w-1.5 rounded-full bg-tertiary" /> Current role
                         </span>
                       </div>
@@ -127,7 +127,7 @@ export default function ExperienceTrail({
 
                     {isAdmin ? (
                       <div className="mt-3.5">
-                        <p className="mb-1.5 text-[11px] font-semibold text-primary">
+                        <p className="mb-1.5 text-[12px] font-semibold text-primary">
                           One bullet per line — paste all bullets at once, then click away to save.
                         </p>
                         <EditableMultiline

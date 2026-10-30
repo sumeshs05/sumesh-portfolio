@@ -9,7 +9,7 @@ export const seedContent: SiteContent = {
     eyebrow: "Open to advisory & select roles",
     headline: "Turning ambiguous problems into shipped roadmaps.",
     intro:
-      "I'm Sumesh — a Senior Product / Program Manager with 12 years building consumer products at scale, including 7+ years and counting at Swiggy. I instrument the funnel, prioritize with data, and partner across Product, Design, Engineering, Data and Ops to ship things people actually use.",
+      "I'm Sumesh — a General Manager in Product Management with 12 years building consumer products at scale, including 7+ years and counting at Swiggy. I instrument the funnel, prioritize with data, and partner across Product, Design, Engineering, Data and Ops to ship things people actually use.",
     ctaPrimaryLabel: "See my work",
     ctaSecondaryLabel: "Download résumé",
     photoUrl: null,
@@ -210,7 +210,7 @@ export const seedContent: SiteContent = {
   experience: [
     {
       id: "exp-swiggy",
-      role: "Sr. Manager, Product Management",
+      role: "General Manager, Product Management",
       company: "Swiggy Limited",
       location: "Bangalore, India",
       tag: "Swiggy",
@@ -295,6 +295,63 @@ export const seedContent: SiteContent = {
       tags: [],
       location: "",
     },
+  ],
+  projectsIntro: {
+    "kicker": "Inside the role",
+    "heading": "Key projects at Swiggy",
+    "description": "Ten programs I've run across homepage, discovery, catalog and campaigns — each delivered with design, content, engineering and business teams."
+  },
+  projects: [
+    {
+      "title": "Homepage V1–V5",
+      "description": "Sequenced five homepage releases across design, content, and engineering. Framed each version around discovery and engagement, using CTR and CVR to decide what carried forward.",
+      "category": "Homepage & discovery"
+    },
+    {
+      "title": "Homepage Pathways",
+      "description": "Coordinated pathway rollout across design, engineering, and business teams to launch milestones. Defined pathways as a faster route into relevant journeys, tracked via engagement and conversion.",
+      "category": "Homepage & discovery"
+    },
+    {
+      "title": "No Homepage Transition from Pathways to Carousel Cards",
+      "description": "Planned the phased move, managing dependencies and sign-offs. Shaped it to preserve discovery while measuring engagement and conversion impact.",
+      "category": "Homepage & discovery"
+    },
+    {
+      "title": "Homepage Cluster Cards",
+      "description": "Drove cluster cards from scoping to launch with content, design, and engineering. Shaped cluster logic to surface relevant groupings, measured via impressions, CTR, and CVR.",
+      "category": "Homepage & discovery"
+    },
+    {
+      "title": "Landing Page Widgets",
+      "description": "Orchestrated widget builds and launches across landing pages, managing dependencies and release schedules. Prioritized formats and placements by performance and business goals.",
+      "category": "Landing pages & catalog"
+    },
+    {
+      "title": "Item Clusters",
+      "description": "Planned and delivered item cluster rollouts across catalog, content, and engineering. Defined clustering to help customers find relevant items faster, read via engagement and conversion.",
+      "category": "Landing pages & catalog"
+    },
+    {
+      "title": "Catalog Enrichment",
+      "description": "Tracked enrichment workstreams across content and operations, managing timelines and quality checks. Prioritized enrichment where better item data most improves discovery and conversion.",
+      "category": "Landing pages & catalog"
+    },
+    {
+      "title": "Festive, Topical & Sale-led Campaigns/Events",
+      "description": "Managed time-critical campaign calendars, locking creatives and engineering deliverables ahead of fixed dates. Aligned on-app treatment to brand and monetization goals.",
+      "category": "Campaigns & engagement"
+    },
+    {
+      "title": "Gamification",
+      "description": "Planned and delivered gamified experiences with design, engineering, and business teams, managing scope and launch readiness. Shaped mechanics to lift engagement against business goals.",
+      "category": "Campaigns & engagement"
+    },
+    {
+      "title": "BxGy",
+      "description": "Coordinated BxGy offer launches across business and engineering, tracking scope, dependencies, and go-live readiness. Defined how the offer surfaces on-app; read results via conversion and uptake.",
+      "category": "Campaigns & engagement"
+    }
   ],
   certificationsIntro: {
     kicker: "Credentials & recognition",
